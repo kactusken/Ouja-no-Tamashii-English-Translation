@@ -1,4 +1,4 @@
-# Zen Nihon Pro Wrestling: Ouja no Tamashii - English translation
+# Zen Nippon Pro Wrestling: Ouja no Tamashii - English translation
 
 This repository holds the tools and the translation data (text tables, image transcriptions and
 English). **No disc image, game files or artwork are included.** To play the translation, download

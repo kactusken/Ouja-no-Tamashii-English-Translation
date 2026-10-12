@@ -1,0 +1,209 @@
+offset,ram,refs,max_bytes,japanese,english,notes
+0x00098,0x8005c260,2,7,制作,Production,
+0x000a0,0x8005c268,2,11,田島　弘喜,Hiroki Tajima,name reading unverified
+0x000ac,0x8005c274,2,15,ディレクター,Director,
+0x000bc,0x8005c284,2,7,監修,Supervision,
+0x000c4,0x8005c28c,2,15,スタジオＥＧＭ,Studio EGM,
+0x000d4,0x8005c29c,2,39,株式会社アバコクリエイティブスタジオ,Abaco Creative Studio Inc.,
+0x000fc,0x8005c2c4,2,23,株式会社ＩＭＡＧＩＣＡ,IMAGICA Corp.,
+0x00114,0x8005c2dc,4,31,全日本プロ・レスリング株式会社,"All Japan Pro Wrestling Co., Ltd.",
+0x00134,0x8005c2fc,1,11,遠藤　快征,Yoshiyuki Endo,name reading unverified
+0x00140,0x8005c308,1,11,谷内　雅功,Masanori Yachi,name reading unverified
+0x0014c,0x8005c314,1,11,泉　忠司,Tadashi Izumi,
+0x00158,0x8005c320,1,11,浅見　一誠,Issei Asami,name reading unverified
+0x00164,0x8005c32c,1,11,西村　武晃,Takeaki Nishimura,name reading unverified
+0x00170,0x8005c338,1,11,田澤　幹夫,Mikio Tazawa,
+0x0017c,0x8005c344,1,11,田口　詠子,Eiko Taguchi,name reading unverified
+0x00188,0x8005c350,1,15,渋谷　健太郎,Kentaro Shibuya,
+0x00198,0x8005c360,1,11,安田　浩子,Hiroko Yasuda,
+0x001a4,0x8005c36c,1,11,舘岡　絹子,Kinuko Tateoka,
+0x001b0,0x8005c378,1,11,杉山　千春,Chiharu Sugiyama,
+0x001bc,0x8005c384,1,11,久下　直人,Naoto Kuge,name reading unverified
+0x001c8,0x8005c390,1,11,杉浦　賢治,Kenji Sugiura,
+0x001d4,0x8005c39c,1,11,丸山　裕,Yutaka Maruyama,name reading unverified
+0x001e0,0x8005c3a8,1,11,太田　耕平,Kohei Ota,
+0x001ec,0x8005c3b4,1,11,佐藤　勝幸,Katsuyuki Sato,
+0x001f8,0x8005c3c0,1,11,住谷　義博,Yoshihiro Sumitani,
+0x00204,0x8005c3cc,1,11,伊藤　智史,Satoshi Ito,name reading unverified
+0x00210,0x8005c3d8,1,11,加藤　徹,Toru Kato,
+0x0021c,0x8005c3e4,1,11,桜井　淳一,Junichi Sakurai,
+0x00228,0x8005c3f0,1,11,大坪　博文,Hirofumi Otsubo,
+0x00234,0x8005c3fc,1,11,鳴沢　賢一,Kenichi Narusawa,
+0x00240,0x8005c408,1,11,本城　信樹,Nobuki Honjo,name reading unverified
+0x0024c,0x8005c414,1,15,田野辺　賢治,Kenji Tanobe,
+0x0025c,0x8005c424,1,15,田野瀬　健一,Kenichi Tanose,
+0x0026c,0x8005c434,1,11,柴田　直樹,Naoki Shibata,
+0x00278,0x8005c440,1,11,金井　聡,Satoshi Kanai,
+0x00284,0x8005c44c,1,11,戸澤　敏和,Toshikazu Tozawa,
+0x00290,0x8005c458,1,11,山田　和彦,Kazuhiko Yamada,
+0x0029c,0x8005c464,1,19,スペシャルサンクス,Special Thanks,
+0x002b0,0x8005c478,1,31,木原　文人　（全日本プロレス）,Fumihito Kihara (AJPW),
+0x002d0,0x8005c498,1,31,三橋　裕輔　（全日本プロレス）,Yusuke Mitsuhashi (AJPW),
+0x002f0,0x8005c4b8,1,31,仲田　龍　　（全日本プロレス）,Ryu Nakata (AJPW),
+0x00310,0x8005c4d8,1,23,リング・アナウンサー,Ring Announcers,
+0x00328,0x8005c4f0,1,31,和田　京平　（全日本プロレス）,Kyohei Wada (AJPW),
+0x00348,0x8005c510,1,11,レフェリー,Referee,
+0x00354,0x8005c51c,3,7,協力,Cooperation,
+0x0035c,0x8005c524,1,35,興村　　暁人　　（ＩＭＡＧＩＣＡ）,Akito Okimura (IMAGICA),name reading unverified
+0x00380,0x8005c548,1,35,美濃　　一彦　　（ＩＭＡＧＩＣＡ）,Kazuhiko Mino (IMAGICA),
+0x003a4,0x8005c56c,1,35,金沢　　早苗　　（ＩＭＡＧＩＣＡ）,Sanae Kanazawa (IMAGICA),
+0x003c8,0x8005c590,1,11,３Ｄ編集,3D Editing,
+0x003d4,0x8005c59c,1,35,高橋　　しおり（ＩＭＡＧＩＣＡ）,Shiori Takahashi (IMAGICA),
+0x003f8,0x8005c5c0,1,35,布川　　茂明　　（ＩＭＡＧＩＣＡ）,Shigeaki Nunokawa (IMAGICA),name reading unverified
+0x0041c,0x8005c5e4,1,11,収録クルー,Recording Crew,
+0x00428,0x8005c5f0,1,35,萩原　　康一郎（ＩＭＡＧＩＣＡ）,Koichiro Hagiwara (IMAGICA),
+0x0044c,0x8005c614,1,19,チーフオペレーター,Chief Operator,
+0x00460,0x8005c628,1,35,河野　　哲恵　　（ＩＭＡＧＩＣＡ）,Norie Kono (IMAGICA),name reading unverified
+0x00484,0x8005c64c,1,23,テクニカルディレクター,Technical Director,
+0x0049c,0x8005c664,1,35,西村　　和久　　（ＩＭＡＧＩＣＡ）,Kazuhisa Nishimura (IMAGICA),
+0x004c0,0x8005c688,1,31,モーションキャプチャースタッフ,Motion Capture Staff,
+0x004e0,0x8005c6a8,1,11,山崎　洋一,Yoichi Yamazaki,
+0x004ec,0x8005c6b4,1,11,富貫　功一,Koichi Tominuki,name reading unverified
+0x004f8,0x8005c6c0,1,11,永田　毅,Tsuyoshi Nagata,
+0x00504,0x8005c6cc,1,11,水澤　清恵,Kiyoe Mizusawa,name reading unverified
+0x00510,0x8005c6d8,1,11,小林　功,Isao Kobayashi,
+0x0051c,0x8005c6e4,1,27,パッケージコーディネート,Package Coordination,
+0x00538,0x8005c700,1,47,島田　　亜季　　（リアルインターナショナル）,Aki Shimada (Real Int'l),
+0x00568,0x8005c730,1,47,川口　　大介　　（リアルインターナショナル）,Daisuke Kawaguchi (Real Int'l),
+0x00598,0x8005c760,1,47,遠藤　　覚　　　　（リアルインターナショナル）,Satoru Endo (Real Int'l),
+0x005c8,0x8005c790,1,15,宣伝サポート,Promotion Support,
+0x005d8,0x8005c7a0,1,11,寺井　代恵,Yoshie Terai,name reading unverified
+0x005e4,0x8005c7ac,1,15,佐藤　美也子,Miyako Sato,
+0x005f4,0x8005c7bc,1,11,島村　優,Yu Shimamura,name reading unverified
+0x00600,0x8005c7c8,1,11,片寄　泰匡,Yasumasa Katayose,name reading unverified
+0x0060c,0x8005c7d4,1,11,熊谷　一幸,Kazuyuki Kumagai,
+0x00618,0x8005c7e0,1,11,広報・宣伝,PR & Advertising,
+0x00624,0x8005c7ec,1,11,阿部　猛,Takeshi Abe,
+0x00630,0x8005c7f8,1,11,高橋　良太,Ryota Takahashi,
+0x0063c,0x8005c804,1,15,唐津　慎一郎,Shinichiro Karatsu,
+0x0064c,0x8005c814,1,11,野原　智彰,Tomoaki Nohara,
+0x00658,0x8005c820,1,11,今村　志郎,Shiro Imamura,
+0x00664,0x8005c82c,1,15,高野　登美男,Tomio Takano,
+0x00674,0x8005c83c,1,11,佐野　隆広,Takahiro Sano,
+0x00680,0x8005c848,1,11,水口　誠,Makoto Mizuguchi,
+0x0068c,0x8005c854,1,15,佐々木　義和,Yoshikazu Sasaki,
+0x0069c,0x8005c864,1,23,マーケティングスタッフ,Marketing Staff,
+0x006b4,0x8005c87c,2,11,山下　直樹,Naoki Yamashita,
+0x006c0,0x8005c888,2,7,実況,Commentary,play-by-play commentary
+0x006c8,0x8005c890,2,39,Ｒｉｍｉｘｅｄ　ｂｙ　　保本　　真吾,Remixed by Shingo Yasumoto,"original typo ""Rimixed"" corrected"
+0x006f0,0x8005c8b8,2,23,「王者の魂」リミックス,"""Ouja no Tamashii"" Remix",
+0x00708,0x8005c8d0,2,71,ＷＡＴＡＮＡＢＥ　ＭＵＳＩＣ　ＰＵＢＬＩＳＨＩＮＧ　ＣＯ．，ＬＴＤ．,"WATANABE MUSIC PUBLISHING CO.,LTD.",full-width English converted to ASCII
+0x00750,0x8005c918,2,59,Ｒｉｇｈｔｓ　ｆｏｒ　Ｊａｐａｎ　ａｓｓｉｇｎｅｄ　ｔｏ,Rights for Japan assigned to,full-width English converted to ASCII
+0x0078c,0x8005c954,2,59,１９９０　ｂｙ　ＭＡＬＭＳＴＥＥＮ　ＰＵＢＬＩＳＨＩＮＧ,1990 by MALMSTEEN PUBLISHING,full-width English converted to ASCII
+0x007c8,0x8005c990,2,55,Ｍｕｓｉｃ　ｂｙ　　Ｙｎｇｗｉｅ　Ｍａｌｍｓｔｅｅｎ,Music by Yngwie Malmsteen,full-width English converted to ASCII
+0x00800,0x8005c9c8,2,23,”ＥＣＬＩＰＳＥ．”,"""ECLIPSE.""",full-width English converted to ASCII
+0x00818,0x8005c9e0,2,19,あつの　いちろを,Ichiro Atsuno,"hiragana credit, reading/meaning unclear (?)"
+0x0082c,0x8005c9f4,2,15,Ｓｏｕｎｄｅｒ,Sounder,full-width English converted to ASCII
+0x0083c,0x8005ca04,2,11,石井　雅子,Masako Ishii,
+0x00848,0x8005ca10,2,11,高添　香織,Kaori Takazoe,
+0x00854,0x8005ca1c,2,31,Ｖｅｒｙ　Ｔｈａｎｋｓ　ｔｏ,Special Thanks to,"full-width English converted to ASCII; original ""Very Thanks to"""
+0x00874,0x8005ca3c,2,11,国分　康人,Yasuto Kokubu,name reading unverified
+0x00880,0x8005ca48,2,11,保本　真吾,Shingo Yasumoto,name reading unverified
+0x0088c,0x8005ca54,2,11,Ｍｕｓｉｃ,Music,full-width English converted to ASCII
+0x00898,0x8005ca60,2,19,サウンドスタッフ,Sound Staff,
+0x008ac,0x8005ca74,2,11,山下　正人,Masato Yamashita,
+0x008b8,0x8005ca80,2,11,山中　潤,Jun Yamanaka,
+0x008c4,0x8005ca8c,2,7,進行,Game Flow,進行 = game flow/progression scripting
+0x008cc,0x8005ca94,2,11,藤田　政行,Masayuki Fujita,
+0x008d8,0x8005caa0,2,27,会場＆リングモデリング作成,Arena & Ring Modeling,
+0x008f4,0x8005cabc,2,11,中川　洋,Hiroshi Nakagawa,name reading unverified
+0x00900,0x8005cac8,2,11,山下　勇,Isamu Yamashita,
+0x0090c,0x8005cad4,2,15,小山内　麗香,Reika Osanai,
+0x0091c,0x8005cae4,2,11,奥野　美穂,Miho Okuno,
+0x00928,0x8005caf0,2,11,林　靖之,Yasuyuki Hayashi,
+0x00934,0x8005cafc,2,11,杉澤　大助,Daisuke Sugisawa,
+0x00940,0x8005cb08,2,11,橋本　千尋,Chihiro Hashimoto,
+0x0094c,0x8005cb14,2,11,小野　晃史,Koji Ono,name reading unverified
+0x00958,0x8005cb20,2,11,古澤　政嗣,Masatsugu Furusawa,
+0x00964,0x8005cb2c,2,11,丸山　健,Ken Maruyama,name reading unverified
+0x00970,0x8005cb38,4,11,鳥井　千羽,Chiba Torii,name reading unverified
+0x0097c,0x8005cb44,2,15,中田　美和子,Miwako Nakata,
+0x0098c,0x8005cb54,2,11,川口　美佳,Mika Kawaguchi,
+0x00998,0x8005cb60,2,11,林　友恵,Tomoe Hayashi,
+0x009a4,0x8005cb6c,2,11,石川　真琴,Makoto Ishikawa,
+0x009b0,0x8005cb78,2,11,山岸　秀紀,Hideki Yamagishi,
+0x009bc,0x8005cb84,2,19,技モーション作成,Move Motions,
+0x009d0,0x8005cb98,2,15,佐々木　恵介,Keisuke Sasaki,
+0x009e0,0x8005cba8,2,23,監修＆技モーション作成,Supervision & Move Motions,
+0x009f8,0x8005cbc0,4,11,中村　美乃,Yoshino Nakamura,name reading unverified
+0x00a04,0x8005cbcc,2,15,駒木　真理子,Mariko Komaki,
+0x00a14,0x8005cbdc,2,11,菊地　大理,Dairi Kikuchi,name reading unverified
+0x00a20,0x8005cbe8,2,11,モデル作成,Modeling,
+0x00a2c,0x8005cbf4,2,11,木村　俊晴,Toshiharu Kimura,
+0x00a38,0x8005cc00,2,19,監修＆モデル作成,Supervision & Modeling,
+0x00a4c,0x8005cc14,2,11,木村　政史,Masashi Kimura,
+0x00a58,0x8005cc20,2,23,ビジュアルディレクター,Visual Director,
+0x00a70,0x8005cc38,2,19,ビジュアルスタッフ,Visual Staff,
+0x00a84,0x8005cc4c,2,11,金子　裕幸,Hiroyuki Kaneko,
+0x00a90,0x8005cc58,2,11,原木　正志,Masashi Haraki,name reading unverified
+0x00a9c,0x8005cc64,2,15,ツールサポート,Tool Support,
+0x00aac,0x8005cc74,2,11,清水　徹,Toru Shimizu,
+0x00ab8,0x8005cc80,2,11,金子　剛,Tsuyoshi Kaneko,name reading unverified
+0x00ac4,0x8005cc8c,2,19,イベントサポート,Event Support,
+0x00ad8,0x8005cca0,2,11,佐々木　武,Takeshi Sasaki,
+0x00ae4,0x8005ccac,2,11,実況制御,Commentary Control,
+0x00af0,0x8005ccb8,2,11,丸山　法昭,Noriaki Maruyama,
+0x00afc,0x8005ccc4,2,15,五冠王の軌跡,Path of the Five Crowns,
+0x00b0c,0x8005ccd4,2,11,杉井　俊晴,Toshiharu Sugii,
+0x00b18,0x8005cce0,2,27,モーション制御・ロジック,Motion Control & Logic,
+0x00b34,0x8005ccfc,2,11,奥野　博之,Hiroyuki Okuno,
+0x00b40,0x8005cd08,2,15,進行・イベント,Game Flow & Events,
+0x00b50,0x8005cd18,2,11,大原　一,Hajime Ohara,
+0x00b5c,0x8005cd24,2,19,メインプログラム,Main Programming,
+0x00b70,0x8005cd38,2,19,プログラムスタッフ,Programming Staff,
+0x00b84,0x8005cd4c,2,11,彌武　芳郎,Yoshiro Yatake,name reading unverified
+0x00b90,0x8005cd58,2,11,企画・実況,Planning & Commentary,
+0x00b9c,0x8005cd64,2,11,坂井　隆史,Takashi Sakai,
+0x00ba8,0x8005cd70,2,11,企画・進行,Planning & Game Flow,
+0x00bb4,0x8005cd7c,2,23,プランニングスタッフ,Planning Staff,
+0x00bcc,0x8005cd94,2,11,戸川　浩明,Hiroaki Togawa,
+0x00bd8,0x8005cda0,3,15,プロデューサー,Producer,
+0x00bec,0x8005cdb4,1,19,ここから刻まれる。,will be written from here.,Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00c00,0x8005cdc8,1,35,そして、新たなる”五冠王の軌跡”が,"And a new ""Path of the Five Crowns""",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00c24,0x8005cdec,1,27,ここから始まるのである。,begins here.,Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00c40,0x8005ce08,1,23,王道プロレスの真の道は,"and truth of pro wrestling,",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00c58,0x8005ce20,1,35,プロレスの奥深さと真理を追求する,"you have walked, seeking the depth",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00c7c,0x8005ce44,1,27,そう、今まで歩み続けてきた,"Yes, the true Royal Road",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00c98,0x8005ce60,1,43,真のエースとして歩むことができるのである。,"""bright, fun, intense"" wrestling.",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00cc4,0x8005ce8c,1,47,『明るく、楽しく、激しいプロレス』を体現できる,you can become a true ace who lives,Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00cf4,0x8005cebc,1,35,多くの人々の期待と希望を背負い、,"with the hopes of many on your back,",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00d18,0x8005cee0,1,31,だからこそ、その道を歩むことで,"That is why, by walking this path",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00d38,0x8005cf00,1,19,のだから・・・。,"than winning it""...",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00d4c,0x8005cf14,1,47,”王座は獲ることよりも守ることの方が難しい”,"for ""keeping a title is harder",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00d7c,0x8005cf44,1,19,待ち構えている。,"now lies before you,",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00d90,0x8005cf58,1,31,目の前には王者としての宿命が,A champion's destiny,Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00db0,0x8005cf78,1,27,約束されたものではない。,But it is not yours forever.,Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00dcc,0x8005cf94,1,19,だが、それは永遠に,"of ""Five-Crown Champion.""",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00de0,0x8005cfa8,1,19,最強の座についた。,you have taken the throne,Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00df4,0x8005cfbc,1,39,全日本の頂点である”五冠王”という名の,"At the summit of All Japan,",Five Crowns ending text (lines stored bottom-up; translated as a passage)
+0x00e1c,0x8005cfe4,1,23,王者の魂よ、安らかに…,"Rest in peace, soul of a champion...",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00e34,0x8005cffc,1,27,たくさんの夢をありがとう。,and thank you for all the dreams.,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00e50,0x8005d018,1,23,さようなら馬場さん、,"Farewell, Baba-san,",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00e68,0x8005d030,1,51,僕たちの心の中ではこれからもずっと生き続ける…。,he lives on in our hearts forever...,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00e9c,0x8005d064,1,39,今ではもう、その勇姿は見れないけれど、,"Though we can't see him fight now,",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00ec4,0x8005d08c,1,31,スケールの大きかった馬場さん。,big-hearted and larger than life.,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00ee4,0x8005d0ac,1,23,人間としても懐が深く、,"but as a man, too, Baba was",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00efc,0x8005d0c4,1,27,レスラーとしてだけでなく、,Not just as a wrestler,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00f18,0x8005d0e0,1,23,着実に息づいている。,"who wrestle with ""intensity.""",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00f30,0x8005d0f8,1,43,“激しい”プロレスを展開する後継者たちへ,"Misawa, Kawada, Taue and Kobashi,",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00f5c,0x8005d124,1,35,三沢や川田、田上、小橋に代表される,"live on in his successors, led by",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00f80,0x8005d148,1,31,馬場さんの精神、プロレス理論は,Baba's spirit and philosophy,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00fa0,0x8005d168,1,31,後身の指導にも余念がなかった,while devoted to guiding the young.,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00fc0,0x8005d188,1,35,最後までファンを楽しませながら、,he kept the fans entertained,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x00fe4,0x8005d1ac,1,27,“生涯現役”を貫き通し、,"""Active for life"" to the very end,",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x01000,0x8005d1c8,1,35,当時の多くのファンを魅了していた。,and captivated the fans of his day.,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x01024,0x8005d1ec,1,35,幾多の強豪レスラーたちと繰り広げ、,against countless great wrestlers,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x01048,0x8005d210,1,23,ダイナミックな名勝負を,he fought dynamic classics,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x01060,0x8005d228,1,27,スケールの大きなプロレス、,"With his larger-than-life style,",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x0107c,0x8005d244,1,31,ネックブリーカーで宙を舞い、,with dropkicks and neckbreakers.,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x0109c,0x8005d264,1,19,ドロップキックや,flew through the air,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x010b0,0x8005d278,1,27,かつてはあの大きな身体が,but that huge body once,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x010cc,0x8005d294,1,27,とても想像できないけれど、,"It's hard to picture now,",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x010e8,0x8005d2b0,1,23,そんな馬場さんからは,"""the ultimate entertainer.""",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x01100,0x8005d2c8,1,35,“最高のエンターテイナー”だった。,all the fun they could ask for:,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x01124,0x8005d2ec,1,35,ファイトで目一杯楽しませてくれる,he gave the fans in the arena,Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x01148,0x8005d310,1,43,会場に来たお客さんを悪役商会の人たちとの,"In his bouts with the Heel Corps,","Giant Baba tribute; 悪役商会 = Akuyaku Shokai, the comedic heel stable Baba feuded with"
+0x01174,0x8005d33c,1,27,ジャイアント馬場だった。,"of ""bright, fun, intense"" wrestling.",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x01190,0x8005d358,1,39,“明るく、楽しい”部分を担うレスラー、,"embodied the ""bright and fun"" side",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x011b8,0x8005d380,1,39,『明るく、楽しく、激しいプロレス』の,"was Giant Baba, the wrestler who",Giant Baba tribute (lines stored bottom-up; translated as a passage)
+0x011e0,0x8005d3a8,1,30,僕らのよく知っている馬場さんは,The Baba we all knew,Giant Baba tribute (lines stored bottom-up; translated as a passage)

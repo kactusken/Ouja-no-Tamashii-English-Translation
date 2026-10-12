@@ -1,9 +1,11 @@
 # Zen Nippon Pro Wrestling: Ouja no Tamashii - English translation
 
 This repository holds the tools and the translation data (text tables, image transcriptions and
-English). **No disc image, game files or artwork are included.** To play the translation, download
+English). **No disc image, game files or artwork are included** (apart from the screenshots). To play the translation, download
 the patches from the [Releases](../../releases) page and apply them to your own copy of the original
 Japanese disc. To build or change it yourself, see [Building it yourself](#building-it-yourself).
+
+See it in action: [screenshots](screenshots.md).
 
 ## Playing the translation
 

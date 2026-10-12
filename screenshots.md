@@ -2,6 +2,10 @@
 
 In-game screenshots of the English translation, taken in DuckStation.
 
+## Title screen
+
+![Title screen](screenshots/title-menu.png)
+
 ## Menus
 
 ### Mode select

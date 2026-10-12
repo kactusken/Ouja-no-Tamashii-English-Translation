@@ -1,0 +1,203 @@
+offset,ram,refs,max_bytes,japanese,english,notes
+0x00004,0x8005c1cc,4,11,和田恭平,Kyohei Wada,"referee; game writes 恭平, real name 京平"
+0x00010,0x8005c1d8,4,19,モスマンジャージ,Mossman Track Suit,
+0x00024,0x8005c1ec,4,7,森嶋猛,Takeshi Morishima,
+0x0002c,0x8005c1f4,4,15,金丸ジャージ姿,Kanemaru Track Suit,
+0x0003c,0x8005c204,4,15,志賀ジャージ姿,Shiga Track Suit,
+0x0004c,0x8005c214,4,15,浅子ジャージ姿,Asako Track Suit,
+0x0005c,0x8005c224,4,15,井上ジャージ姿,Inoue Track Suit,
+0x0006c,0x8005c234,1,7,真吾,Shingo,fictional wrestler
+0x00074,0x8005c23c,1,19,ウィル・ジェイムス,Will James,fictional wrestler
+0x00088,0x8005c250,1,11,五十嵐利明,Toshiaki Igarashi,fictional wrestler
+0x00094,0x8005c25c,1,19,クラッシャー旗本,Crusher Hatamoto,fictional wrestler
+0x000a8,0x8005c270,1,23,アイアン・ブラスター,Iron Blaster,fictional wrestler
+0x000c0,0x8005c288,1,19,ナイト・ブラスター,Night Blaster,fictional wrestler
+0x000d4,0x8005c29c,1,23,テキサス・ハリーＪｒ,Texas Harry Jr.,fictional wrestler
+0x000ec,0x8005c2b4,1,19,ザ・イリミネーター,The Eliminator,fictional wrestler
+0x00100,0x8005c2c8,1,15,ファイター大和,Fighter Yamato,fictional wrestler
+0x00110,0x8005c2d8,1,11,桃谷敦夫,Atsuo Momotani,fictional wrestler; name reading unverified
+0x0011c,0x8005c2e4,1,15,ラッシュ桧村,Rush Himura,fictional wrestler
+0x0012c,0x8005c2f4,1,11,天涯かなた,Kanata Tengai,fictional wrestler; name reading unverified
+0x00138,0x8005c300,1,11,沖田勝志,Katsushi Okita,fictional wrestler; name reading unverified
+0x00144,0x8005c30c,1,7,桧垣誠,Makoto Higaki,fictional wrestler
+0x0014c,0x8005c314,1,15,ストーム慶介,Storm Keisuke,fictional wrestler
+0x0015c,0x8005c324,1,7,超力丸,Chorikimaru,fictional wrestler; name reading unverified
+0x00164,0x8005c32c,1,23,ザ・ミステリアス・武道,The Mysterious Budo,fictional wrestler
+0x0017c,0x8005c344,1,11,ヨチロー,Yochiro,fictional wrestler
+0x00188,0x8005c350,1,11,イチロー,Ichiro,fictional wrestler
+0x00194,0x8005c35c,1,7,俊藤剣,Ken Shundo,fictional wrestler; name reading unverified
+0x0019c,0x8005c364,1,15,メキシカンＢ,Mexican B,fictional wrestler
+0x001ac,0x8005c374,1,15,メキシカンＡ,Mexican A,fictional wrestler
+0x001bc,0x8005c384,1,15,ザ・ファントム,The Phantom,fictional wrestler
+0x001cc,0x8005c394,1,11,ペンタゴン,Pentagon,fictional wrestler
+0x001d8,0x8005c3a0,1,19,ウィン・ハーロック,Win Harlock,fictional wrestler
+0x001ec,0x8005c3b4,1,19,ザ・ジェノサイド,The Genocide,fictional wrestler
+0x00200,0x8005c3c8,1,23,ダイナミック・キッド,Dynamic Kid,fictional wrestler
+0x00218,0x8005c3e0,1,15,ガート・バン,Gart Van,fictional wrestler; spelling guess
+0x00228,0x8005c3f0,1,11,怒乱音羽,Doran Otowa,fictional wrestler; name reading unverified
+0x00234,0x8005c3fc,1,27,初代マスク・ド・パンサー,Mask de Panther I,fictional wrestler; 初代 = the original/first
+0x00250,0x8005c418,1,19,ブラック・パンサー,Black Panther,fictional wrestler
+0x00264,0x8005c42c,1,23,マスク・ド・パンサー,Mask de Panther,fictional wrestler
+0x0027c,0x8005c444,1,19,ビッグ・ポリスマン,Big Policeman,fictional wrestler
+0x00290,0x8005c458,1,15,ザ・セキトリ,The Sekitori,fictional wrestler
+0x002a0,0x8005c468,1,15,デスハザード,Death Hazard,fictional wrestler
+0x002b0,0x8005c478,1,27,アブドラ・ザ・デンジャー,Abdullah the Danger,fictional wrestler
+0x002cc,0x8005c494,1,11,アドン春樹,Adon Haruki,fictional wrestler
+0x002d8,0x8005c4a0,1,15,ヒットマン源,Hitman Gen,fictional wrestler
+0x002e8,0x8005c4b0,1,19,オリンピア・阿久津,Olympia Akutsu,fictional wrestler
+0x002fc,0x8005c4c4,1,7,雷龍,Rairyu,fictional wrestler; name reading unverified
+0x00304,0x8005c4cc,1,27,スマッシャー・Ｇ・ギガス,Smasher G. Gigas,fictional wrestler
+0x00320,0x8005c4e8,1,19,ヘルズ・ステイシー,Hell's Stacy,fictional wrestler
+0x00334,0x8005c4fc,1,19,ピーダー・モーガン,Peder Morgan,fictional wrestler; spelling guess
+0x00348,0x8005c510,1,7,鬼道,Kido,fictional wrestler; name reading unverified
+0x00350,0x8005c518,1,11,ミスターＫ,Mister K,fictional wrestler
+0x0035c,0x8005c524,1,11,ミスター金,Mister Kim,fictional wrestler; 金 read as Korean Kim (?)
+0x00368,0x8005c530,1,19,オライオン・ビート,Orion Beat,fictional wrestler
+0x0037c,0x8005c544,1,7,魔道,Mado,fictional wrestler; name reading unverified
+0x00384,0x8005c54c,1,11,山本和輝,Kazuki Yamamoto,fictional wrestler; name reading unverified
+0x00390,0x8005c558,1,11,臼谷勝次,Katsuji Usuya,fictional wrestler; name reading unverified
+0x0039c,0x8005c564,1,11,池河ダイゴ,Daigo Ikegawa,fictional wrestler
+0x003a8,0x8005c570,1,11,秋原雅彦,Masahiko Akihara,fictional wrestler
+0x003b4,0x8005c57c,1,15,バタフライ河野,Butterfly Kono,fictional wrestler
+0x003c4,0x8005c58c,1,23,ブレッド・ケイスキー,Bret Keisky,fictional wrestler; spelling guess
+0x003dc,0x8005c5a4,1,7,冴刃明,Akira Saeba,fictional wrestler; name reading unverified
+0x003e4,0x8005c5ac,1,11,甲山良広,Yoshihiro Koyama,fictional wrestler; name reading unverified (could be Kabutoyama)
+0x003f0,0x8005c5b8,1,15,ビクトリー武蔵,Victory Musashi,fictional wrestler
+0x00400,0x8005c5c8,1,23,グレート・ジャイアント,Great Giant,fictional wrestler
+0x00418,0x8005c5e0,1,11,ビッグ大林,Big Obayashi,fictional wrestler
+0x00424,0x8005c5ec,1,31,ジャイアント・ザ・ロシュモフ,Giant the Roshmoff,fictional wrestler; Andre the Giant parody (Roussimoff)
+0x00444,0x8005c60c,1,15,ケリー・ボギー,Kerry Bogey,fictional wrestler
+0x00454,0x8005c61c,1,23,ジ・アンダーグラウンド,The Underground,fictional wrestler
+0x0046c,0x8005c634,1,19,テキサス・ケリー,Texas Kerry,fictional wrestler
+0x00480,0x8005c648,1,27,ビック・ザ・グレート・ブル,Big the Great Bull,fictional wrestler
+0x0049c,0x8005c664,1,23,ジェネラル・ボルドー,General Bordeaux,fictional wrestler; spelling guess
+0x004b4,0x8005c67c,1,11,トシ護東,Toshi Goto,fictional wrestler
+0x004c0,0x8005c688,1,11,木原文人,Fumihito Kihara,real AJPW ring announcer
+0x004cc,0x8005c694,1,11,神崎仁水,Jinsui Kanzaki,fictional wrestler; name reading unverified
+0x004d8,0x8005c6a0,1,15,ＨＡＹＡＴＥ,HAYATE,fictional wrestler
+0x004e8,0x8005c6b0,1,11,タトゥー,Tattoo,fictional wrestler
+0x004f4,0x8005c6bc,1,19,ダーク・ランマル,Dark Ranmaru,fictional wrestler
+0x00508,0x8005c6d0,1,11,ランマル,Ranmaru,fictional wrestler
+0x00514,0x8005c6dc,1,19,ダッド・デイビス,Dad Davis,fictional wrestler
+0x00528,0x8005c6f0,1,19,アックス・ドゥガン,Axe Dugan,fictional wrestler
+0x0053c,0x8005c704,1,23,フラッシュ・バートン,Flash Burton,fictional wrestler
+0x00554,0x8005c71c,1,23,スティール・ジェイムス,Steel James,fictional wrestler
+0x0056c,0x8005c734,1,19,ベイダー　カラー４,Vader Color 4,costume
+0x00580,0x8005c748,1,19,ベイダー　カラー３,Vader Color 3,costume
+0x00594,0x8005c75c,1,19,ベイダー　カラー２,Vader Color 2,costume
+0x005a8,0x8005c770,1,19,ベイダー　カラー１,Vader Color 1,costume
+0x005bc,0x8005c784,1,15,鶴田　カラー４,Tsuruta Color 4,costume
+0x005cc,0x8005c794,1,15,鶴田　カラー３,Tsuruta Color 3,costume
+0x005dc,0x8005c7a4,1,15,鶴田　カラー２,Tsuruta Color 2,costume
+0x005ec,0x8005c7b4,1,15,鶴田　カラー１,Tsuruta Color 1,costume
+0x005fc,0x8005c7c4,1,19,モスマン　カラー４,Mossman Color 4,costume
+0x00610,0x8005c7d8,1,19,モスマン　カラー３,Mossman Color 3,costume
+0x00624,0x8005c7ec,1,19,モスマン　カラー２,Mossman Color 2,costume
+0x00638,0x8005c800,1,19,モスマン　カラー１,Mossman Color 1,costume
+0x0064c,0x8005c814,1,19,キマラ　カラー４,Kimala Color 4,costume
+0x00660,0x8005c828,1,19,キマラ　カラー３,Kimala Color 3,costume
+0x00674,0x8005c83c,1,19,キマラ　カラー２,Kimala Color 2,costume
+0x00688,0x8005c850,1,19,キマラ　カラー１,Kimala Color 1,costume
+0x0069c,0x8005c864,1,19,スミス　カラー４,Smith Color 4,costume
+0x006b0,0x8005c878,1,19,スミス　カラー３,Smith Color 3,costume
+0x006c4,0x8005c88c,1,19,スミス　カラー２,Smith Color 2,costume
+0x006d8,0x8005c8a0,1,19,スミス　カラー１,Smith Color 1,costume
+0x006ec,0x8005c8b4,1,19,エース　カラー４,Ace Color 4,costume
+0x00700,0x8005c8c8,1,19,エース　カラー３,Ace Color 3,costume
+0x00714,0x8005c8dc,1,19,エース　カラー２,Ace Color 2,costume
+0x00728,0x8005c8f0,1,19,エース　カラー１,Ace Color 1,costume
+0x0073c,0x8005c904,1,23,オブライト　カラー４,Albright Color 4,costume
+0x00754,0x8005c91c,1,23,オブライト　カラー３,Albright Color 3,costume
+0x0076c,0x8005c934,1,23,オブライト　カラー２,Albright Color 2,costume
+0x00784,0x8005c94c,1,23,オブライト　カラー１,Albright Color 1,costume
+0x0079c,0x8005c964,1,19,ハンセン　カラー４,Hansen Color 4,costume
+0x007b0,0x8005c978,1,19,ハンセン　カラー３,Hansen Color 3,costume
+0x007c4,0x8005c98c,1,19,ハンセン　カラー２,Hansen Color 2,costume
+0x007d8,0x8005c9a0,1,19,ハンセン　カラー１,Hansen Color 1,costume
+0x007ec,0x8005c9b4,1,15,金丸　カラー４,Kanemaru Color 4,costume
+0x007fc,0x8005c9c4,1,15,金丸　カラー３,Kanemaru Color 3,costume
+0x0080c,0x8005c9d4,1,15,金丸　カラー２,Kanemaru Color 2,costume
+0x0081c,0x8005c9e4,1,15,金丸　カラー１,Kanemaru Color 1,costume
+0x0082c,0x8005c9f4,1,15,志賀　カラー４,Shiga Color 4,costume
+0x0083c,0x8005ca04,1,15,志賀　カラー３,Shiga Color 3,costume
+0x0084c,0x8005ca14,1,15,志賀　カラー２,Shiga Color 2,costume
+0x0085c,0x8005ca24,1,15,志賀　カラー１,Shiga Color 1,costume
+0x0086c,0x8005ca34,1,15,浅子　カラー４,Asako Color 4,costume
+0x0087c,0x8005ca44,1,15,浅子　カラー３,Asako Color 3,costume
+0x0088c,0x8005ca54,1,15,浅子　カラー２,Asako Color 2,costume
+0x0089c,0x8005ca64,1,15,浅子　カラー１,Asako Color 1,costume
+0x008ac,0x8005ca74,1,15,小川　カラー４,Ogawa Color 4,costume
+0x008bc,0x8005ca84,1,15,小川　カラー３,Ogawa Color 3,costume
+0x008cc,0x8005ca94,1,15,小川　カラー２,Ogawa Color 2,costume
+0x008dc,0x8005caa4,1,15,小川　カラー１,Ogawa Color 1,costume
+0x008ec,0x8005cab4,1,15,菊池　カラー４,Kikuchi Color 4,costume
+0x008fc,0x8005cac4,1,15,菊池　カラー３,Kikuchi Color 3,costume
+0x0090c,0x8005cad4,1,15,菊池　カラー２,Kikuchi Color 2,costume
+0x0091c,0x8005cae4,1,15,菊池　カラー１,Kikuchi Color 1,costume
+0x0092c,0x8005caf4,1,15,フチ　カラー４,Fuchi Color 4,costume
+0x0093c,0x8005cb04,1,15,フチ　カラー３,Fuchi Color 3,costume
+0x0094c,0x8005cb14,1,15,フチ　カラー２,Fuchi Color 2,costume
+0x0095c,0x8005cb24,1,15,フチ　カラー１,Fuchi Color 1,costume
+0x0096c,0x8005cb34,1,15,井上　カラー４,Inoue Color 4,costume
+0x0097c,0x8005cb44,1,15,井上　カラー３,Inoue Color 3,costume
+0x0098c,0x8005cb54,1,15,井上　カラー２,Inoue Color 2,costume
+0x0099c,0x8005cb64,1,15,井上　カラー１,Inoue Color 1,costume
+0x009ac,0x8005cb74,1,15,泉田　カラー４,Izumida Color 4,costume
+0x009bc,0x8005cb84,1,15,泉田　カラー３,Izumida Color 3,costume
+0x009cc,0x8005cb94,1,15,泉田　カラー２,Izumida Color 2,costume
+0x009dc,0x8005cba4,1,15,泉田　カラー１,Izumida Color 1,costume
+0x009ec,0x8005cbb4,1,15,本田　カラー４,Honda Color 4,costume
+0x009fc,0x8005cbc4,1,15,本田　カラー３,Honda Color 3,costume
+0x00a0c,0x8005cbd4,1,15,本田　カラー２,Honda Color 2,costume
+0x00a1c,0x8005cbe4,1,15,本田　カラー１,Honda Color 1,costume
+0x00a2c,0x8005cbf4,1,15,大森　カラー４,Omori Color 4,costume
+0x00a3c,0x8005cc04,1,15,大森　カラー３,Omori Color 3,costume
+0x00a4c,0x8005cc14,1,15,大森　カラー２,Omori Color 2,costume
+0x00a5c,0x8005cc24,1,15,大森　カラー１,Omori Color 1,costume
+0x00a6c,0x8005cc34,1,15,馳　カラー４,Hase Color 4,costume
+0x00a7c,0x8005cc44,1,15,馳　カラー３,Hase Color 3,costume
+0x00a8c,0x8005cc54,1,15,馳　カラー２,Hase Color 2,costume
+0x00a9c,0x8005cc64,1,15,馳　カラー１,Hase Color 1,costume
+0x00aac,0x8005cc74,1,15,秋山　カラー４,Akiyama Color 4,costume
+0x00abc,0x8005cc84,1,15,秋山　カラー３,Akiyama Color 3,costume
+0x00acc,0x8005cc94,1,15,秋山　カラー２,Akiyama Color 2,costume
+0x00adc,0x8005cca4,1,15,秋山　カラー１,Akiyama Color 1,costume
+0x00aec,0x8005ccb4,1,15,小橋　カラー４,Kobashi Color 4,costume
+0x00afc,0x8005ccc4,1,15,小橋　カラー３,Kobashi Color 3,costume
+0x00b0c,0x8005ccd4,1,15,小橋　カラー２,Kobashi Color 2,costume
+0x00b1c,0x8005cce4,1,15,小橋　カラー１,Kobashi Color 1,costume
+0x00b2c,0x8005ccf4,1,15,田上　カラー４,Taue Color 4,costume
+0x00b3c,0x8005cd04,1,15,田上　カラー３,Taue Color 3,costume
+0x00b4c,0x8005cd14,1,15,田上　カラー２,Taue Color 2,costume
+0x00b5c,0x8005cd24,1,15,田上　カラー１,Taue Color 1,costume
+0x00b6c,0x8005cd34,1,15,川田　カラー４,Kawada Color 4,costume
+0x00b7c,0x8005cd44,1,15,川田　カラー３,Kawada Color 3,costume
+0x00b8c,0x8005cd54,1,15,川田　カラー２,Kawada Color 2,costume
+0x00b9c,0x8005cd64,1,15,川田　カラー１,Kawada Color 1,costume
+0x00bac,0x8005cd74,1,15,三沢　カラー４,Misawa Color 4,costume
+0x00bbc,0x8005cd84,1,15,三沢　カラー３,Misawa Color 3,costume
+0x00bcc,0x8005cd94,1,15,三沢　カラー２,Misawa Color 2,costume
+0x00bdc,0x8005cda4,1,15,三沢　カラー１,Misawa Color 1,costume
+0x00bec,0x8005cdb4,1,15,馬場　カラー４,Baba Color 4,costume
+0x00bfc,0x8005cdc4,1,15,馬場　カラー３,Baba Color 3,costume
+0x00c0c,0x8005cdd4,1,15,馬場　カラー２,Baba Color 2,costume
+0x00c1c,0x8005cde4,1,15,馬場　カラー１,Baba Color 1,costume
+0x00c68,0x8005ce30,1,7,１５　,,number - kept
+0x00c70,0x8005ce38,1,7,１４　,,number - kept
+0x00c78,0x8005ce40,1,7,１３　,,number - kept
+0x00c80,0x8005ce48,1,7,１２　,,number - kept
+0x00c88,0x8005ce50,1,7,１１　,,number - kept
+0x00c90,0x8005ce58,1,7,１０　,,number - kept
+0x00c98,0x8005ce60,1,7,９　,,number - kept
+0x00ca0,0x8005ce68,1,7,８　,,number - kept
+0x00ca8,0x8005ce70,1,7,７　,,number - kept
+0x00cb0,0x8005ce78,1,7,６　,,number - kept
+0x00cb8,0x8005ce80,1,7,５　,,number - kept
+0x00cc0,0x8005ce88,1,7,４　,,number - kept
+0x00cc8,0x8005ce90,1,7,３　,,number - kept
+0x00cd0,0x8005ce98,1,7,２　,,number - kept
+0x00cd8,0x8005cea0,1,7,１　,,number - kept
+0x01124,0x8005d2ec,0,43,王者の魂　チャンピオン・カーニバルデータ,AJPW Champ. Carnival,"[fullwidth] memory card title, max 21 chars"
+0x01164,0x8005d32c,0,43,王者の魂　世界最強タッグ決定リーグ戦データ,AJPW Tag League Data,"[fullwidth] memory card title, max 21 chars"
+0x011a4,0x8005d36c,0,27,王者の魂　システムデータ,AJPW System,"[fullwidth] memory card title, max 13 chars"
+0x011d4,0x8005d39c,0,31,王者の魂　エディットレスラー,AJPW Edit Data,"[fullwidth] memory card title, max 15 chars"

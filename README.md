@@ -1,5 +1,9 @@
 # Zen Nippon Pro Wrestling: Ouja no Tamashii - English translation
 
+> **New: the [player's guide](https://kactusken.github.io/Ouja-no-Tamashii-English-Translation/guide/)** - how to play,
+> every mode, the controls, Path of the Five Crowns week by week, every Edit Wrestler part and how to unlock it,
+> secrets and a Japanese glossary. Written for this translation, with its names and menus.
+
 This repository holds the tools and the translation data (text tables, image transcriptions and
 English). **No disc image, game files or artwork are included** (apart from the screenshots). To play the translation, download
 the patches from the [Releases](../../releases) page and apply them to your own copy of the original
@@ -186,6 +190,8 @@ stacked, because the translation moves PROG.BIN and regenerates sector EDC/ECC. 
 | `tools/paths.py` | every folder location in one place, and the folder options |
 
 Technical notes (file formats, memory layout, how text is drawn): [docs/NOTES.md](docs/NOTES.md).
+Player's guide: [docs/guide/](docs/guide/index.html). Its tables come from `tools/guidedata.py` (run it after renaming
+anything in `translation/`; `--check` tells whether the page is up to date).
 
 ## License
 

@@ -137,7 +137,8 @@ Left/Right in the edit pages (0x8006f5c0 / 0x8006f6c0) skip values whose byte in
 is not 1. Array = *(0x8008d37c + (page-1)*16 + A*4), A = Title Match flag 0x8004f560 (Five Crowns
 chapter bits). Pages: 1 body model (44: models 0-43), 2 move-set type (60, labels 0027_051-110),
 3 logic (20, labels 0027_145-163), 4 entrance (40). A=0: bodies 0-22 + 24 only; chapter bit 0 adds
-Tsuruta + 11 fictional bodies, bit 1 adds Tsuruta + the other 8; both = all 44. Never available even
+Tsuruta + 11 fictional bodies, bit 1 adds Tsuruta + the other 8; both = all 44. Bit 0 = Succession, bit 1 = Ascent
+(PROG 0x8006b784 ors in 1 when career byte +0x174 is 0, else 2; *from the code*). Never available even
 with A=3: move sets 58-59, logic 19, entrances 37-39 (page 4 uses array 0x8008d354 instead when
 0x8009351e is set - move set 0x24 with logic 0/2, see 0x8006f924). Models 44-50 are not in the list
 at all - only the SELECT swap (0x8006fa1c) reaches them.
@@ -155,6 +156,25 @@ Entries 779-1186 = 51 models x 8 slots (slots 0-3 = the 4 colours; 4-7 unknown, 
 DATAMATC.ARC 0003-0060 are the M4 meshes (geometry only), 0062-0119 per-model offset tables.
 DATALINK 0531-0706 (4 per model 0-43) are the brush-lettered name banners, not textures.
 A few tiles decode with odd colours - CLUT selection is not fully understood yet.
+
+## Move sets (work in progress)
+
+*From the code* (MATCH.BIN loader 0x80096dec-0x80096fb0). Match wrestler slots at 0x8004f920, 4 x 0xf0 bytes:
++0x18 body model, +0x19 colour, +0x1e in use, +0x2b move set (0-57; 58 and up fall back to 1), +0x29 / +0x2c
+logic (0xff at +0x29: CPU logic +0x2c). Per slot the match loads:
+
+| Source | Entry | What |
+|---|---|---|
+| DATALINK | 0x4c3 + model*8 + colour | body mesh |
+| DATALINK | 0x30b + model*8 + colour | body textures (see above) |
+| DATAMATC | 3 + move set | the move set's animation bank (M4: "M4" u16 count, u32 offsets, records) |
+| DATAMATC | 0x3e + move set | the move set's command table (26-31 KB; u32 id, 16 sub-table offsets, file-relative pointers) |
+| DATAMATC | 0x78 / 0x91 + logic | 1 KB CPU logic tables |
+
+DATAMATC 0-2 are shared M4 banks (188, 740 and 2975 records). The 58 move-set banks hold 14,948 records but
+only 2,838 distinct ones, 2,781 of them also in banks 0-2: a move set is a selection from one master animation
+library. No move names exist as text anywhere on the disc (only the 27 finish labels 0707_035-061); the
+play-by-play commentary (XA files A_D/ E_EA/ EB_G/) is the only place the game names moves.
 
 ## Path of the Five Crowns chapters
 

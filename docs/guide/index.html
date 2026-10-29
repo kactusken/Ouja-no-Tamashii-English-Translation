@@ -1,0 +1,1492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ouja no Tamashii Guide</title>
+<meta name="description" content="A fan-made English guide to Zen Nippon Pro Wrestling: Ouja no Tamashii (Human, PlayStation, 1999), written with the English fan translation: modes, controls, Path of the Five Crowns, Edit Wrestler and secrets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Big+Shoulders+Display:wght@700;800;900&family=Noto+Sans+JP:wght@400;700;900&display=swap">
+<script>
+  try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<style>
+/* Colours. Recolour the whole page here: --accent (links, highlights, the current section) and
+   --accent-2 (tips, the second stripe). Each token has a light value here and a dark value in the
+   two dark blocks below (keep those two identical); the print block at the end sets its own.
+   Recolour all four places - changing only this one leaves the dark theme in the starter's red and
+   blue, and the page looks like two different sites when the reader switches theme. */
+:root {
+  --bg: #eef1f7;
+  --panel: #ffffff;
+  --ink: #111a33;
+  --muted: #56607c;
+  --rule: #d2d8e6;
+  --frame: #8a97b8;
+  --accent: #c8202a;
+  --accent-2: #1d4fc4;
+  --accent-ink: #ffffff;
+  --code: #e4e9f3;
+  --focus: #1d4fc4;
+  --hero-bg: #071233;
+  --hero-ink: #f2f5fc;
+  --hero-muted: #a9b6d8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #070e26;
+    --panel: #0e1838;
+    --ink: #e8edf8;
+    --muted: #9eabcd;
+    --rule: #22305a;
+    --frame: #5a6c9c;
+    --accent: #ff5a52;
+    --accent-2: #6d9bff;
+    --accent-ink: #070e26;
+    --code: #17244a;
+    --focus: #8fb4ff;
+    --hero-bg: #040a1d;
+    --hero-ink: #f2f5fc;
+    --hero-muted: #9eabcd;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #070e26;
+  --panel: #0e1838;
+  --ink: #e8edf8;
+  --muted: #9eabcd;
+  --rule: #22305a;
+  --frame: #5a6c9c;
+  --accent: #ff5a52;
+  --accent-2: #6d9bff;
+  --accent-ink: #070e26;
+  --code: #17244a;
+  --focus: #8fb4ff;
+  --hero-bg: #040a1d;
+  --hero-ink: #f2f5fc;
+  --hero-muted: #9eabcd;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.62 "Atkinson Hyperlegible", system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+:lang(ja), .jp { font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif; }
+a { color: var(--accent); text-underline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+.display { font-family: "Big Shoulders Display", "Arial Narrow", sans-serif; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-ink);
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1680px; margin: 0 auto; padding: 56px 24px 0;
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; align-items: start;
+}
+.hero-jp {
+  writing-mode: vertical-rl;
+  font-family: "Noto Sans JP", sans-serif; font-weight: 900;
+  font-size: 25px; line-height: 1.25; letter-spacing: .06em;
+  color: var(--hero-muted);
+  margin: 4px 0 0;
+}
+.hero-title { margin: 0; font-weight: 800; line-height: .86; }
+.hero-title .pre {
+  display: block; font-size: clamp(24px, 3.6vw, 40px); font-weight: 700; letter-spacing: .01em;
+  color: var(--hero-muted); margin-bottom: 10px;
+}
+.hero-title .main {
+  display: block; font-size: clamp(56px, 12vw, 168px); font-weight: 900; text-transform: uppercase;
+  letter-spacing: -.005em; overflow-wrap: anywhere;
+}
+.band { display: grid; grid-template-columns: repeat(2, 1fr); height: 14px; margin: 26px 0 0; }
+.band span { display: block; transform-origin: left; }
+.band span:nth-child(1) { background: var(--accent); }
+.band span:nth-child(2) { background: var(--accent-2); }
+@media (prefers-reduced-motion: no-preference) {
+  .band span { animation: stripe .5s cubic-bezier(.2, .7, .2, 1) both; }
+  .band span:nth-child(2) { animation-delay: .15s; }
+  @keyframes stripe { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+.hero-lede { font-size: 19px; max-width: 46ch; margin: 26px 0 0; color: var(--hero-ink); }
+.hero-about { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 4px 22px; }
+.about-btn {
+  display: inline-flex; align-items: center; gap: 7px; padding: 4px 0;
+  background: none; border: 0; cursor: pointer;
+  font: inherit; font-size: 15px; color: var(--hero-muted);
+  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 4px;
+}
+.about-btn svg { width: 17px; height: 17px; flex: none; }
+.about-btn:hover, .about-btn[aria-expanded="true"] { color: var(--hero-ink); }
+.about-card {
+  position: absolute; inset: auto; margin: 0; width: min(540px, calc(100vw - 32px));
+  padding: 18px 22px 20px; border: 1px solid var(--frame); border-top: 4px solid var(--accent);
+  background: var(--panel); color: var(--ink); font-size: 15.5px; line-height: 1.55;
+  box-shadow: 0 14px 40px rgba(10, 12, 30, .35);
+}
+.about-card p { margin: 0 0 10px; }
+.about-card p:last-child { margin: 0; }
+.about-card h2 { font: 800 19px/1.1 "Big Shoulders Display", "Arial Narrow", sans-serif; margin: 14px 0 4px; color: var(--ink); }
+.doors { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 30px 0 0; padding: 0 0 44px; list-style: none; }
+.doors li { border-left: 1px solid rgba(255,255,255,.16); }
+.doors li:first-child { border-left: 0; }
+.doors a { display: block; padding: 4px 22px 6px; text-decoration: none; color: var(--hero-ink); }
+.doors li:first-child a { padding-left: 0; }
+.door-name { display: block; font: 900 30px/1.05 "Big Shoulders Display", "Arial Narrow", sans-serif; }
+.door-note { display: block; margin-top: 4px; font-size: 15px; line-height: 1.4; color: var(--hero-muted); }
+.doors a:hover .door-name { color: var(--accent); }
+.doors a:focus-visible { outline-offset: 4px; }
+.theme-btn {
+  position: absolute; top: 14px; right: 16px;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: transparent; color: var(--hero-muted); border: 1px solid rgba(255,255,255,.22);
+  cursor: pointer;
+}
+.theme-btn:hover { color: var(--hero-ink); border-color: var(--hero-muted); }
+.theme-btn svg { width: 20px; height: 20px; }
+.theme-btn .sun { display: none; }
+.is-dark .theme-btn .sun { display: block; }
+.is-dark .theme-btn .moon { display: none; }
+@media (max-width: 640px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr); padding: 64px 16px 0; gap: 0; }
+  .hero-jp { writing-mode: horizontal-tb; font-size: 15px; letter-spacing: .02em; order: 2; margin: 18px 0 0; }
+  .hero-body { display: contents; }
+  .hero-title { order: 1; }
+  .band-wrap { order: 3; }
+  .hero-lede { order: 4; font-size: 17px; }
+  .hero-about { order: 5; }
+  .about-card { order: 6; }
+  .doors { order: 7; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
+  .doors li:nth-child(3) { border-left: 0; }
+  .doors li:nth-child(3) a { padding-left: 0; }
+}
+
+/* ---------- Layout ---------- */
+.wrap { max-width: 1680px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 48px; }
+@media (min-width: 960px) { .wrap { grid-template-columns: 260px minmax(0, 1fr); } }
+@media (max-width: 640px) { .wrap { padding: 0 16px; } }
+main { min-width: 0; padding: 40px 0 96px; }
+
+/* ---------- Contents ---------- */
+.toc { font-size: 15px; line-height: 1.45; }
+.toc summary {
+  cursor: pointer; font-weight: 700; padding: 14px 0; list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--rule);
+}
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary::after { content: "+"; font-size: 22px; line-height: 1; color: var(--muted); }
+.toc[open] summary::after { content: "–"; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li { margin: 0; }
+.toc ol ol { padding: 0 0 6px 12px; font-size: 14px; }
+.toc-group {
+  font: 800 19px/1 "Big Shoulders Display", "Arial Narrow", sans-serif; letter-spacing: .01em;
+  color: var(--muted); margin: 20px 0 6px 11px; display: block;
+}
+.toc a {
+  display: block;
+  color: var(--ink); text-decoration: none; padding: 2.5px 8px; border-left: 3px solid transparent;
+}
+/* Sub-entries show only for the section being read (or while a keyboard user is inside them) */
+@media (min-width: 960px) {
+  .toc ol ol { display: none; }
+  .toc li.open > ol, .toc li:focus-within > ol { display: block; }
+}
+.toc ol ol a { color: var(--muted); }
+.toc a:hover { color: var(--accent); }
+.toc a[aria-current="true"] { border-left-color: var(--accent); color: var(--ink); font-weight: 700; background: var(--code); }
+@media (min-width: 960px) {
+  .toc { position: sticky; top: 0; align-self: start; max-height: 100vh; overflow: auto; padding: 24px 0 24px; overscroll-behavior: contain; }
+  .toc summary { display: none; }
+}
+
+/* ---------- Content ---------- */
+section { padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--rule); }
+main > section:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
+h2, h3 { font-family: "Big Shoulders Display", "Arial Narrow", sans-serif; letter-spacing: .005em; }
+h2 { font-size: 46px; line-height: 1; font-weight: 900; margin: 0 0 18px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+h3 { font-size: 29px; line-height: 1.1; font-weight: 800; margin: 38px 0 10px; }
+h4 { font-size: 18px; margin: 24px 0 6px; }
+@media (max-width: 640px) { h2 { font-size: 38px; } h3 { font-size: 26px; } }
+p, li, dl { max-width: 70ch; }
+ul, ol { padding-left: 1.3em; }
+li { margin: 4px 0; }
+li > ul, li > ol { margin: 4px 0; }
+.small { font-size: 14.5px; color: var(--muted); }
+code { font-size: .92em; background: var(--code); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+.top-link { display: inline-block; margin-top: 18px; font-size: 14px; }
+
+.callout {
+  background: var(--panel); border: 1px solid var(--rule); border-left: 5px solid var(--accent);
+  padding: 12px 16px; margin: 18px 0; border-radius: 0 6px 6px 0; max-width: 70ch;
+}
+.callout.tip { border-left-color: var(--accent-2); }
+.callout strong.label { display: block; font-size: 15px; margin-bottom: 2px; }
+.callout p { margin: 0; }
+
+/* Keys and buttons: <kbd>Start</kbd>, and <kbd class="btn">A</kbd> for a round face button */
+kbd {
+  font: 700 13.5px/1 "Atkinson Hyperlegible", sans-serif;
+  display: inline-block; min-width: 1.75em; padding: 4px 6px; text-align: center;
+  border-radius: 6px; background: var(--code); color: var(--ink);
+  border: 1px solid var(--rule); border-bottom-width: 2px; vertical-align: 1px; white-space: nowrap;
+}
+kbd.btn { border-radius: 50%; width: 1.95em; min-width: 0; padding: 4px 0; border: 0; background: var(--ink); color: var(--bg); box-shadow: inset 0 -2px 0 rgba(0,0,0,.22); }
+
+/* ---------- Tables ---------- */
+.tablewrap { overflow-x: auto; margin: 14px 0 22px; border: 1px solid var(--rule); border-radius: 6px; background: var(--panel); }
+table { border-collapse: collapse; width: 100%; font-size: 15.5px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+th { font-size: 13.5px; font-weight: 700; color: var(--muted); background: var(--code); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td .jp, h3 .jp { color: var(--muted); font-size: .88em; font-weight: 400; }
+.gloss-table .jp-term { font-family: "Noto Sans JP", sans-serif; font-weight: 700; white-space: nowrap; }
+.gloss-table .r { display: block; font: 400 13.5px "Atkinson Hyperlegible", sans-serif; color: var(--muted); }
+
+/* A filterable data table (filled from the data block): search box, group chips, status line */
+.table-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 16px 0 6px; }
+.table-tools[hidden] { display: none; }
+.chip {
+  font: 700 14.5px "Atkinson Hyperlegible", sans-serif; cursor: pointer;
+  padding: 7px 14px; border-radius: 999px; border: 1.5px solid var(--rule);
+  background: var(--panel); color: var(--ink);
+}
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.search {
+  flex: 1 1 220px; min-width: 0; font: 15.5px "Atkinson Hyperlegible", sans-serif;
+  padding: 8px 12px; border-radius: 8px; border: 1.5px solid var(--rule); background: var(--panel); color: var(--ink);
+}
+.search::placeholder { color: var(--muted); }
+.status { font-size: 14.5px; color: var(--muted); margin: 4px 0 0; min-height: 1.4em; }
+.datatable-wrap { max-height: 70vh; overflow: auto; }
+.datatable thead th { position: sticky; top: 0; z-index: 1; }
+.datatable td:first-child { font-weight: 700; }
+.datatable tr[hidden] { display: none; }
+.datatable .empty td { color: var(--muted); font-weight: 400; }
+tr.flash > td { animation: flash 1.6s ease-out; }
+@keyframes flash { from { background: color-mix(in srgb, var(--accent) 25%, transparent); } to { background: transparent; } }
+@media (prefers-reduced-motion: reduce) { tr.flash > td { animation: none; outline: 2px solid var(--accent); } }
+
+/* ---------- Screenshots: native-size pixel art at whole-number scales only, sharp ----------
+   Set --shot-w to the game's native screenshot width (SNES 256px, Saturn 320px, PS1 320px...).
+   --shot-x is the scale of a "side" screenshot on a wide screen, --row-x the scale in rows of
+   screenshots; keep both whole numbers (1.6x smears the pixels and the in-game text). */
+:root { --shot-w: 320px; --shot-x: 1; --row-x: 1; }
+.shots { display: grid; gap: 14px; margin: 14px 0 22px;
+  grid-template-columns: repeat(auto-fill, calc(var(--shot-w) * var(--row-x))); }
+@media (max-width: 640px) { .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.shots figure { margin: 0; }
+.shots img, figure.shot img {
+  display: block; width: 100%; height: auto; image-rendering: pixelated;
+  border-radius: 4px; border: 1px solid var(--rule); background: var(--code); cursor: zoom-in;
+}
+.shots figcaption { font-size: 14px; line-height: 1.4; color: var(--muted); margin-top: 6px; }
+figure.shot { margin: 14px 0 18px; width: calc(var(--shot-w) * var(--shot-x)); max-width: 100%; }
+figure.shot figcaption { font-size: 14.5px; color: var(--muted); margin-top: 6px; }
+/* Desktop first: a screenshot marked "side" sits beside the text that follows it at native size
+   (click to enlarge), so a section reads without scrolling past every picture. Headings and
+   tables start below it, except a narrow table marked "beside". Narrower screens show it in line. */
+@media (min-width: 960px) {
+  figure.shot.side { float: right; margin: 4px 0 14px 32px; }
+  main .tablewrap.beside { clear: none; }
+  main h2, main h3, main .tablewrap, main .datatable-wrap, main .shots, main .roster-split, main .unlock-cols, main .chapters, main .two-lists, main figure.pad { clear: both; }
+  main > section::after { content: ""; display: block; clear: both; }
+}
+
+/* ---------- Spoilers ---------- */
+details.spoiler { margin: 18px 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); padding: 0 16px; max-width: 70ch; }
+details.spoiler > summary { cursor: pointer; font-weight: 700; padding: 14px 0; color: var(--accent); }
+details.spoiler[open] > summary { border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+details.spoiler[open] { padding-bottom: 16px; }
+
+/* ---------- Dialog: a screenshot enlarged (click any screenshot) ---------- */
+#zoom {
+  width: calc(100vw - 32px); height: calc(100vh - 32px); max-width: none; max-height: none;
+  padding: 0; border: 1px solid var(--rule); border-radius: 10px; background: var(--bg); color: var(--ink);
+  overflow: hidden;
+}
+#zoom[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+#zoom::backdrop { background: rgba(6, 7, 22, .72); }
+.dlg-head { display: flex; align-items: center; gap: 12px 20px; padding: 10px 12px 10px 20px; border-bottom: 1px solid var(--rule); background: var(--panel); }
+.dlg-head p { margin: 0; font-size: 15px; color: var(--muted); min-width: 0; }
+.dlg-close {
+  margin-left: auto; flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+  background: transparent; color: var(--ink); border: 1.5px solid var(--rule); font-size: 20px; line-height: 1;
+}
+.dlg-close:hover { border-color: var(--accent); color: var(--accent); }
+.dlg-body { overflow: auto; padding: 16px; display: grid; place-items: center; }
+.dlg-body img { display: block; image-rendering: pixelated; }
+
+footer { border-top: 1px solid var(--rule); padding: 28px 24px 56px; color: var(--muted); font-size: 14.5px; }
+footer .band { max-width: 1632px; margin: 0 auto 22px; height: 6px; }
+footer p { max-width: 1632px; margin: 4px auto; }
+
+/* ---------- Guide search ---------- */
+.gsearch { position: relative; margin: 0 0 4px; }
+.gsearch .search { width: 100%; padding-right: 34px; }
+.gs-key { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 12px; padding: 2px 6px; color: var(--muted); pointer-events: none; }
+.gsearch .search:focus + .gs-key, .gsearch .search:not(:placeholder-shown) + .gs-key { display: none; }
+@media (min-width: 960px) { .gsearch { margin-top: 2px; } }
+@media (max-width: 959px) { .gsearch { margin-top: 12px; } }
+.gres {
+  position: fixed; inset: auto; margin: 0; padding: 6px; width: min(460px, calc(100vw - 32px)); max-height: min(70vh, 560px); overflow: auto;
+  background: var(--panel); color: var(--ink); border: 1px solid var(--frame); border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(10, 12, 30, .3); font-size: 15px; line-height: 1.4;
+}
+.gr { display: grid; grid-template-columns: 5.6em minmax(0, 1fr); column-gap: 10px; padding: 7px 10px; border-radius: 6px; cursor: pointer; }
+.gr[aria-selected="true"] { background: var(--code); box-shadow: inset 3px 0 0 var(--accent); }
+.gr-kind { grid-row: span 2; font-size: 12.5px; font-weight: 700; color: var(--muted); padding-top: 2px; }
+.gr-t { font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
+.gr-t.txt { font-weight: 400; }
+.gr-s { font-size: 13.5px; color: var(--muted); min-width: 0; }
+.gr mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: inherit; border-radius: 2px; padding: 0 1px; }
+.gr-none { padding: 10px; color: var(--muted); }
+.hit-flash { animation: flash 2s ease-out; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .hit-flash { animation: none; outline: 2px solid var(--accent); } }
+
+/* ---------- Section links ---------- */
+.anchor {
+  display: inline-grid; place-items: center; width: 1.1em; height: 1.1em; margin-left: .25em; vertical-align: middle;
+  color: var(--muted); opacity: 0; text-decoration: none; position: relative; border-radius: 4px; transition: opacity .12s;
+}
+h2 .anchor { align-self: center; margin-left: -.15em; width: 28px; height: 28px; }
+.anchor svg { width: .62em; height: .62em; }
+h2 .anchor svg { width: 20px; height: 20px; }
+:is(h2, h3, h4):hover > .anchor, .anchor:focus-visible, .anchor.copied { opacity: 1; }
+.anchor:hover { color: var(--accent); }
+@media (hover: none) { .anchor { opacity: .45; } }
+.anchor.copied::after {
+  content: "Link copied"; position: absolute; left: calc(100% + 6px); top: 50%; transform: translateY(-50%); white-space: nowrap;
+  font: 700 13px/1 "Atkinson Hyperlegible", sans-serif; letter-spacing: 0; color: var(--accent-ink); background: var(--accent);
+  padding: 5px 8px; border-radius: 4px;
+}
+
+/* ---------- Print ---------- */
+@media print {
+  :root:root:root {
+    --bg: #fff; --panel: #fff; --ink: #000; --muted: #4a4c60; --rule: #c9cad6; --frame: #8c86ad;
+    --accent: #b0222a; --accent-2: #1f4a9c; --accent-ink: #fff; --code: #f0f0f5;
+    --hero-bg: #fff; --hero-ink: #000; --hero-muted: #4a4c60;
+  }
+  @page { margin: 14mm 12mm; }
+  html { scroll-behavior: auto; }
+  body { font-size: 10.5pt; line-height: 1.45; background: #fff; }
+  .theme-btn, .hero-about, .doors, .toc, .anchor, .top-link, .table-tools, .status,
+  #zoom, .gres, .about-card, .gs-key { display: none !important; }
+  .hero { overflow: visible; }
+  .hero-inner { padding: 0 0 6mm; max-width: none; }
+  .hero-title .main { font-size: 54pt; }
+  .hero-title .pre { font-size: 20pt; }
+  .band, kbd, .chip { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .wrap { display: block; max-width: none; padding: 0; }
+  main { padding: 0; }
+  section { padding-top: 0; margin-top: 8mm; border-top: 0; }
+  main > section > h2 { break-before: page; }
+  main > section:first-child > h2 { break-before: auto; }
+  h2 { font-size: 26pt; }
+  h3 { font-size: 17pt; margin-top: 6mm; }
+  h2, h3, h4 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; max-width: none; }
+  tr, figure, .callout, .shots { break-inside: avoid; }
+  figure.shot.side { float: none; width: auto; margin: 14px 0 18px; }
+  .tablewrap, .datatable-wrap { overflow: visible; max-height: none; border-radius: 0; }
+  .datatable thead th { position: static; }
+  thead { display: table-header-group; }
+  details.spoiler { border: 0; padding: 0; }
+  details.spoiler > summary { list-style: none; color: var(--ink); padding: 0; }
+  main a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; color: var(--muted); overflow-wrap: anywhere; }
+  .hit-flash, tr.flash > td { animation: none; }
+}
+
+/* Optional: a names switch for projects with two name versions (real / parody). Markup in the
+   hero (commented out), names map in the data block ("names": {token: [first, second]}), and every
+   switchable name written as <span class="nm" data-k="token">first</span>. */
+.names-switch { display: inline-flex; align-items: center; gap: 4px; margin-left: 14px; }
+.ns-label { color: var(--hero-muted); font-size: 14px; margin-right: 2px; }
+.ns-btn { font: inherit; font-size: 14px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--hero-muted); background: transparent; color: var(--hero-ink); cursor: pointer; }
+.ns-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+/* ---------- This guide: the game's chrome-and-filmstrip menus ---------- */
+/* The hero band is a strip of film, like the game's mode select: sprocket holes on a dark base,
+   the red and blue corners running through the middle. */
+.hero .band, footer .band { height: 30px; background: #02040d; position: relative; padding: 9px 0; box-sizing: border-box; }
+.hero .band::before, .hero .band::after, footer .band::before, footer .band::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 5px;
+  background: repeating-linear-gradient(90deg, transparent 0 7px, #c9d0de 7px 17px, transparent 17px 24px);
+}
+.hero .band::before, footer .band::before { top: 2px; } .hero .band::after, footer .band::after { bottom: 2px; }
+.hero .band span, footer .band span { height: 12px; }
+footer .band { height: 22px; padding: 8px 0; } footer .band span { height: 6px; }
+footer .band::before, footer .band::after { height: 3px; }
+/* Screenshots sit in a brushed-steel frame, like the menu bars */
+.shots img, figure.shot img {
+  border: 4px solid; border-radius: 0;
+  border-image: linear-gradient(180deg, #f4f6fb 0%, #9aa3b6 45%, #5f6880 55%, #d8dde8 100%) 1;
+}
+
+.hero-title .main { font-size: clamp(48px, 6.4vw, 104px); }
+.hero-inner { padding-top: 40px; }
+.hero-body { padding-bottom: 34px; }
+.hero-lede { margin-top: 20px; }
+h2 .jp { font: 700 .42em "Noto Sans JP", sans-serif; color: var(--muted); letter-spacing: 0; }
+h4 .jp { font-weight: 400; color: var(--muted); font-size: .9em; }
+kbd.ps { border-radius: 50%; width: 1.95em; min-width: 0; padding: 4px 0; border: 0; color: #fff; background: #2b2e3f; box-shadow: inset 0 -2px 0 rgba(0,0,0,.25); }
+kbd.ps-t { color: #5fd3a3; } kbd.ps-o { color: #ff7a7e; } kbd.ps-x { color: #8fb0ff; } kbd.ps-sq { color: #f2a2d4; }
+figure.pad { margin: 22px 0 10px; max-width: 980px; }
+figure.pad svg { width: 100%; height: auto; display: block; }
+.pad-body { fill: var(--panel); stroke: var(--frame); stroke-width: 2; }
+.pad-well { fill: var(--code); }
+.pad-dpad { fill: #2b2e3f; }
+.pad-pill { fill: #2b2e3f; }
+.pad-shoulder rect { fill: var(--panel); stroke: var(--frame); stroke-width: 2; }
+.pad-shoulder rect.back { fill: var(--code); }
+.pad-shoulder text { font: 700 13px "Atkinson Hyperlegible", sans-serif; fill: var(--ink); text-anchor: middle; }
+.pad-face circle { fill: #2b2e3f; }
+.pad-face text { font: 700 18px "Atkinson Hyperlegible", sans-serif; text-anchor: middle; }
+.pad-face .t { fill: #5fd3a3; } .pad-face .o { fill: #ff7a7e; } .pad-face .x { fill: #8fb0ff; } .pad-face .s { fill: #f2a2d4; }
+.is-dark .pad-dpad, .is-dark .pad-pill, .is-dark .pad-face circle { fill: #34406c; }
+.pad-lead path { fill: none; stroke: var(--muted); stroke-width: 1.25; }
+.pad-lead circle { fill: var(--muted); }
+.pad-label text { font: 16px "Atkinson Hyperlegible", sans-serif; fill: var(--ink); }
+.pad-label text.l { text-anchor: end; }
+.pad-label .k { font-weight: 700; }
+.tag { display: inline-block; font-size: 13px; font-weight: 700; line-height: 1.2; padding: 3px 9px; border-radius: 999px; white-space: nowrap; background: var(--code); color: var(--muted); }
+.tag.start { background: color-mix(in srgb, var(--accent-2) 16%, transparent); color: var(--ink); }
+.tag.succession, .tag.ascent, .tag.either, .tag.both { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--ink); }
+.tag.never { background: transparent; border: 1px dashed var(--rule); }
+.tag.code { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+.datatable td:first-child { font-weight: 400; color: var(--muted); width: 3em; }
+.datatable td, .datatable th { padding: 7px 12px; }
+.roster-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(560px, 1fr)); gap: 0 22px; align-items: start; }
+.roster-split .tablewrap { margin-top: 6px; }
+.unlock-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 14px 0 22px; align-items: start; }
+@media (max-width: 1100px) { .unlock-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ucol { background: var(--panel); border: 1px solid var(--rule); border-top: 5px solid var(--accent); border-radius: 0 0 6px 6px; padding: 2px 16px 12px; }
+.ucol.start { border-top-color: var(--accent-2); }
+.ucol.either { border-top-color: var(--frame); }
+.ucol h4 { margin: 12px 0 8px; font: 800 22px/1.1 "Big Shoulders Display", "Arial Narrow", sans-serif; display: flex; justify-content: space-between; align-items: baseline; }
+.ucol .count { font: 700 14px "Atkinson Hyperlegible", sans-serif; color: var(--muted); }
+.ucol ol { margin: 0; padding-left: 2.2em; font-size: 15.5px; }
+.ucol li { margin: 2px 0; padding-left: 2px; }
+.ucol li::marker { color: var(--muted); font-size: 13px; }
+#logicRows td.desc { color: var(--ink); font-weight: 400; width: 38%; }
+#logicRows .namelist { margin: 0; }
+#logicRows .tag { margin-left: 4px; font-size: 12px; padding: 1px 7px; }
+.ms { font-size: 12px; font-weight: 700; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; padding: 0 5px; white-space: nowrap; }
+.datatable td.nm { font-weight: 700; }
+.fict td { white-space: nowrap; }
+.fict td .jp { display: block; }
+.finish-table td:nth-child(odd) { font-weight: 700; }
+.chapters { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin: 14px 0 8px; max-width: 980px; }
+.chapter { background: var(--panel); border: 1px solid var(--rule); border-top: 5px solid var(--accent); border-radius: 6px; padding: 4px 18px 14px; }
+.chapter:nth-child(2) { border-top-color: var(--accent-2); }
+.namelist { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 6px; max-width: none; }
+.namelist li { margin: 0; background: var(--code); border-radius: 4px; padding: 2px 9px; font-size: 15px; }
+.namelist li .jp { color: var(--muted); font-size: 13px; margin-left: 6px; }
+.two-lists { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 28px; max-width: 1100px; }
+.verdicts li { max-width: 70ch; }
+@media (max-width: 760px) { .two-lists { grid-template-columns: minmax(0, 1fr); } }
+@media print { .tag { print-color-adjust: exact; -webkit-print-color-adjust: exact; } figure.pad { break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark theme">
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+  </button>
+  <div class="hero-inner">
+    <p class="hero-jp" lang="ja">全日本プロレス<br>王者の魂</p>
+    <div class="hero-body">
+      <h1 class="hero-title display">
+        <span class="pre">Zen Nippon Pro Wrestling</span>
+        <span class="main">Ouja no Tamashii</span>
+      </h1>
+      <div class="band-wrap">
+        <div class="band" aria-hidden="true"><span></span><span></span></div>
+      </div>
+      <p class="hero-lede">A fan-made English guide to Human's 1999 All Japan Pro Wrestling game for the PlayStation, written alongside the English fan translation.</p>
+      <p class="hero-about"><button type="button" class="about-btn" id="aboutBtn" aria-expanded="false" aria-controls="aboutCard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>About this guide</button><button type="button" class="about-btn" id="printBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2"/><path d="M6 14h12v7H6z"/></svg>Print or save as PDF</button></p>
+      <div class="about-card" id="aboutCard" popover="manual" role="dialog" aria-label="About this guide">
+        <p>A fan-written guide to <i>Zen Nippon Pro Wrestling: Ouja no Tamashii</i>, a PlayStation game released only in Japan by Human. It was written alongside the English fan translation, so names and menu labels are the ones the translation shows. If you play the original, the <a href="#glossary">Japanese glossary</a> will help.</p>
+        <h2>Where the Facts Come From</h2>
+        <p>Most of this guide comes from the game itself: from play, and from the work on the translation, which read the game's menus, tables and code. The lists of wrestlers, edit types, tours and finishes are generated from the game's own data. The controls come from players' notes and reviews, which are named in <a href="#credits">Credits</a>. Corrections are welcome.</p>
+        <h2>Version History</h2>
+        <p><b>1.0</b>: 2026-10-29. First release: modes, controls, Path of the Five Crowns, Edit Wrestler, secrets.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<details class="toc" id="toc" open>
+  <summary>Contents</summary>
+  <nav aria-label="Contents">
+  <div class="gsearch" role="search">
+    <input class="search" id="gq" type="search" placeholder="Search the guide" autocomplete="off" spellcheck="false"
+      role="combobox" aria-expanded="false" aria-controls="gres" aria-autocomplete="list" aria-label="Search the guide">
+    <kbd class="gs-key" aria-hidden="true">/</kbd>
+  </div>
+  <h2 class="toc-group" id="g-playing">Playing</h2>
+  <ol aria-labelledby="g-playing">
+    <li><a href="#game">The Game</a>
+      <ol>
+        <li><a href="#game-patches">Which Patch?</a></li>
+      </ol>
+    </li>
+    <li><a href="#modes">Modes</a>
+      <ol>
+        <li><a href="#modes-leagues">The Leagues</a></li>
+        <li><a href="#modes-title">Title Match</a></li>
+        <li><a href="#modes-survival">Survival Match</a></li>
+        <li><a href="#modes-data">Manage Data and Options</a></li>
+      </ol>
+    </li>
+    <li><a href="#settings">Match Settings</a></li>
+    <li><a href="#controls">Controls</a>
+      <ol>
+        <li><a href="#controls-basics">The Basics</a></li>
+        <li><a href="#controls-clutch">Clutches</a></li>
+        <li><a href="#controls-soul">The Soul Button</a></li>
+        <li><a href="#controls-finish">How Matches End</a></li>
+      </ol>
+    </li>
+    <li><a href="#roster">The Roster</a></li>
+  </ol>
+  <h2 class="toc-group" id="g-crowns">Five Crowns</h2>
+  <ol aria-labelledby="g-crowns">
+    <li><a href="#crowns">Path of the Five Crowns</a>
+      <ol>
+        <li><a href="#crowns-chapters">The Two Chapters</a></li>
+        <li><a href="#crowns-schedule">The Schedule</a></li>
+        <li><a href="#crowns-training">Training</a></li>
+        <li><a href="#crowns-events">Events</a></li>
+        <li><a href="#crowns-tours">Tours and Venues</a></li>
+        <li><a href="#crowns-end">Baba's Evaluation</a></li>
+      </ol>
+    </li>
+  </ol>
+  <h2 class="toc-group" id="g-edit">Edit Wrestler</h2>
+  <ol aria-labelledby="g-edit">
+    <li><a href="#edit">Edit Wrestler</a>
+      <ol>
+        <li><a href="#edit-body">Body</a></li>
+        <li><a href="#edit-types">Body Types and Move Sets</a></li>
+        <li><a href="#edit-logic">Logic</a></li>
+        <li><a href="#edit-intro">Intro</a></li>
+        <li><a href="#edit-fictional">The Fictional Wrestlers</a></li>
+      </ol>
+    </li>
+  </ol>
+  <h2 class="toc-group" id="g-ref">Reference</h2>
+  <ol aria-labelledby="g-ref">
+    <li><a href="#secrets">Secrets</a>
+      <ol>
+        <li><a href="#sec-title">Title Match</a></li>
+        <li><a href="#sec-survival">Survival Match</a></li>
+        <li><a href="#sec-crowns">Five Crowns Rosters</a></li>
+        <li><a href="#sec-edit">Edit Wrestler Unlocks</a></li>
+        <li><a href="#sec-bodies">Hidden Bodies</a></li>
+        <li><a href="#sec-dev">Developer Leftovers</a></li>
+      </ol>
+    </li>
+    <li><a href="#glossary">Japanese Glossary</a></li>
+    <li><a href="#faq">Q&amp;A</a></li>
+    <li><a href="#credits">Credits and Legal</a></li>
+  </ol>
+  </nav>
+</details>
+
+<main>
+
+<!-- ============================================================ -->
+<section id="game">
+  <h2>The Game</h2>
+  <p><i>Zen Nippon Pro Wrestling: Ouja no Tamashii</i> (<span lang="ja">全日本プロレス 王者の魂</span>, "All Japan Pro Wrestling: Soul of the Champion") is a 3D wrestling game developed and published by Human for the PlayStation. It came out in Japan on 8 April 1999 (SLPS-01849), about two months after Giant Baba's death, and it has his voice on colour commentary. Spike later reissued it in its Spike Library (2000) and as a PS one Book (2001). It was never released outside Japan.</p>
+  <p>The game's title is the name of Baba's entrance theme. It is an All Japan game through and through: the real 1999 roster, the promotion's tours and title belts, and a career mode in which Baba himself books your matches and judges your work. It plays slowly and deliberately, like All Japan's matches did. Wrestlers tire, near-falls come down to the count of 2.9, and the match is a contest of who runs out of fight first.</p>
+  <ul>
+    <li><b>The clutch system.</b> Grapples start with a <i>clutch</i>, a grip chosen with a button, and each clutch has its own follow-up moves. See <a href="#controls-clutch">Clutches</a>.</li>
+    <li><b>Souls.</b> Every wrestler has a few Souls to spend on his biggest moves or on kicking out of a pin he couldn't otherwise escape. See <a href="#controls-soul">The Soul Button</a>.</li>
+    <li><b>Path of the Five Crowns.</b> A one- or two-year career on All Japan's real tour schedule, with training, injuries, tag partners, title shots and Baba's verdict at the end. See <a href="#crowns">Path of the Five Crowns</a>.</li>
+    <li><b>Edit Wrestler.</b> Create a wrestler from 44 body types, 58 move sets and 19 logic (AI) types. Many of them belong to 76 fictional wrestlers, lookalikes of stars from other promotions. See <a href="#edit">Edit Wrestler</a>.</li>
+  </ul>
+  <p>Up to four people can play with a Multitap. Save data goes on a Memory Card.</p>
+
+  <h3 id="game-patches">Which Patch?</h3>
+  <p>The translation comes as three patches; each one is applied to the original Japanese disc image on its own. The README explains how.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Patch</th><th>What you get</th></tr>
+    <tr><td><b>English</b></td><td>The translation and nothing else. The game plays exactly as it did in 1999, unlocks included.</td></tr>
+    <tr><td><b>English + Unlocks</b></td><td>The translation with everything open from the start: Title Match and Survival Match on the mode select, every Edit Wrestler part (and the hidden bodies), and the full Path of the Five Crowns rosters. See <a href="#secrets">Secrets</a> for what each one normally takes.</td></tr>
+    <tr><td><b>Japan + Unlocks</b></td><td>The original Japanese game with the same unlocks.</td></tr>
+  </table></div>
+  <p>Some art stays in Japanese on purpose: the title logo, the brush-lettered name banners in the entrances, and the big title cards before championship matches. Their meanings are in the <a href="#glossary">glossary</a>.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="modes">
+  <h2>Modes</h2>
+  <figure class="shot side"><img src="../screenshots/guide-mode-select.png" alt="The mode select: a filmstrip of photos above the PATH OF 5 CROWNS button and its description" width="320" height="231" loading="lazy"><figcaption>The mode select. Turn the filmstrip with left and right; the description changes under it.</figcaption></figure>
+  <p>Press START on the title screen to go to <b>SELECT MODE</b>. The modes sit on a filmstrip; turn it with left and right on the d-pad. Eight modes are there from the start. Title Match appears once you clear a chapter of Path of the Five Crowns, and Survival Match is hidden (see <a href="#secrets">Secrets</a>).</p>
+  <div class="tablewrap"><table>
+    <tr><th>Mode</th><th>Japanese</th><th>What it is</th></tr>
+    <tr><td><b>Path of 5 Crowns</b></td><td lang="ja">五冠王の軌跡</td><td>The career mode. Wrestle a year or two of All Japan's tours and earn a Triple Crown title shot. See <a href="#crowns">Path of the Five Crowns</a>.</td></tr>
+    <tr><td><b>Exhibition</b></td><td lang="ja">エキシビジョンマッチ</td><td>A one-off match with any wrestlers you like: singles, tag or handicap.</td></tr>
+    <tr><td><b>Champion Carnival</b></td><td lang="ja">チャンピオン・カーニバル</td><td>All Japan's spring singles tournament: a round-robin league for up to 32 wrestlers.</td></tr>
+    <tr><td><b>World Tag League</b></td><td lang="ja">世界最強タッグ決定リーグ戦</td><td>The year-end tag tournament: a round-robin league for up to 16 teams.</td></tr>
+    <tr><td><b>Battle Royal</b></td><td lang="ja">バトルロイヤル</td><td>Every man for himself, with up to four wrestlers in the ring at once.</td></tr>
+    <tr><td><b>Manage Data</b></td><td lang="ja">データ管理</td><td>Memory Card work: register created wrestlers for use in matches, and load or save the system data.</td></tr>
+    <tr><td><b>Edit Wrestler</b></td><td lang="ja">レスラーエディット</td><td>Create your own wrestler. See <a href="#edit">Edit Wrestler</a>.</td></tr>
+    <tr><td><b>Options</b></td><td lang="ja">オプション</td><td>Sound, volume, music and sound tests, vibration.</td></tr>
+    <tr><td><b>Title Match</b></td><td lang="ja">タイトルマッチ</td><td>Defend the singles and tag belts and chase the record for defences. Unlocked by clearing a Five Crowns chapter.</td></tr>
+    <tr><td><b>Survival Match</b></td><td lang="ja">サバイバルマッチ</td><td>Five-man teams in an elimination series of singles and tag matches. Hidden.</td></tr>
+  </table></div>
+
+  <p>A match is set up in three steps. <b>MATCH TYPE</b> picks singles, tag or handicap and who plays each corner: the <b>Blue Corner</b> and the <b>Red Corner</b> each show a player number or <b>COM</b> for the computer. <b>WRESTLER SELECT</b> picks the wrestlers; the tabs at the top switch between All Japan's own wrestlers, the gaijin (foreign wrestlers) and your created wrestlers, and each wrestler has four colours. <b>CONFIGURATION</b> sets the rules (see <a href="#settings">Match Settings</a>).</p>
+  <div class="shots">
+    <figure><img src="../screenshots/guide-match-type.png" alt="The match type screen with Singles, Tag and Handicap Match, and 1P and COM icons in the blue and red corners" width="320" height="231" loading="lazy"><figcaption>Match type. Each corner shows who controls it: 1P to 4P, or COM.</figcaption></figure>
+    <figure><img src="../screenshots/guide-wrestler-select.png" alt="The wrestler select with Misawa in the blue corner and Vader in the red" width="320" height="231" loading="lazy"><figcaption>Wrestler select. The tabs on the right switch between AJPW, gaijin and created wrestlers.</figcaption></figure>
+    <figure><img src="../screenshots/guide-configuration.png" alt="The configuration screen with Time Limit, Ring, CPU Level, Ring Out and Commentary" width="320" height="231" loading="lazy"><figcaption>Configuration, the last step before the bell. More settings scroll into view below.</figcaption></figure>
+  </div>
+
+  <h3 id="modes-leagues">The Leagues</h3>
+  <p>Champion Carnival and World Tag League work the same way, one with singles wrestlers and one with teams. Start a new league or load a saved one, enter the wrestlers on the <b>WRESTLER ENTRY</b> screen (<kbd class="ps ps-o">○</kbd> fills a slot, <kbd class="ps ps-x">×</kbd> clears one, <kbd>START</kbd> ends the entry), and choose a format:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Format</th><th>How it's won</th></tr>
+    <tr><td><b>1</b></td><td>A points league. Whoever has the most points at the end wins.</td></tr>
+    <tr><td><b>2</b></td><td>A points league, then a final between the top two on points.</td></tr>
+    <tr><td><b>3</b></td><td>Two leagues, A and B. The leader of each meets the other in a final.</td></tr>
+  </table></div>
+  <p>The league table shows points and each entrant's win-loss-draw record; <kbd>L</kbd> switches between the table and the standings, <kbd>R</kbd> between leagues A and B, and <kbd>START</kbd> saves or quits. You can play every match or let the computer play the ones you're not in (the game asks "Watch the match?"). If the league ends with wrestlers tied on points, the game offers a play-off league among just those wrestlers.</p>
+
+  <h3 id="modes-title">Title Match</h3>
+  <p>Title matches for the Triple Crown Heavyweight and the World Tag Team belts. The game keeps the line of champions and how many times each defended (<b>CHAMPS + MATCH RECORDS</b>), and offers to save them to the system data when you quit. How to unlock it is in <a href="#sec-title">Secrets</a>.</p>
+
+  <h3 id="modes-survival">Survival Match</h3>
+  <p>Two teams of five, in <b>Singles</b> or <b>Tag</b> form: you set the order, and the losers drop out until one team is left. You can build a team from scratch (<b>New Team</b>) or take one of All Japan's real factions: the <b>Super Gen. Army</b> (Misawa's <span lang="ja">超世代軍</span>), the <b>Holy Demon Army</b> (Kawada and Taue's <span lang="ja">聖鬼軍</span>), the <b>Family Army</b> (<span lang="ja">ファミリー軍団</span>), the <b>Asunaro Warriors</b> (<span lang="ja">あすなろ戦士</span>) and the <b>Old Super Gen.</b> Survival Match can't be unlocked in the original game; see <a href="#sec-survival">Secrets</a>.</p>
+
+  <h3 id="modes-data">Manage Data and Options</h3>
+  <p><b>Manage Data</b> loads and saves the <i>system data</i> (registered wrestlers, unlocks, records) and moves created wrestlers between the Memory Card and the game's <b>Edit Slots</b>. A created wrestler must be registered in a slot before you can use him in a match. You can also erase the Champion Carnival, Tag League or title records here. Path of the Five Crowns and the leagues save separately, from inside their modes.</p>
+  <p><b>Options</b> has Sound (stereo or mono), Music and SFX volume, Vibration, a Sound Test and a <b>Music Test</b> with the entrance themes, Baba's own <i>Ouja no Tamashii</i>, the <i>NTV Sports Theme</i> and Misawa's <i>Spartan X</i> among them.</p>
+  <div class="callout tip"><strong class="label">Tip</strong><p>Save the system data after clearing a Five Crowns chapter. The unlock is kept in the system data, so it is lost if you switch off without saving.</p></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="settings">
+  <h2>Match Settings</h2>
+  <p>The <b>CONFIGURATION</b> screen comes after the wrestler select. Pick <b>START MATCH</b> to go to the ring, or <b>GO BACK</b> to change the wrestlers.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Setting</th><th>Choices</th><th>What it does</th></tr>
+    <tr><td><b>Time Limit</b></td><td>30 min, 45 min, 60 min, No Limit</td><td>The match is a draw when time runs out. All Japan's title matches were 60 minutes.</td></tr>
+    <tr><td><b>Falls</b></td><td>1 Fall, 2 out of 3</td><td>One fall, or best two out of three.</td></tr>
+    <tr><td><b>CPU Level</b></td><td>Level 1 to 8</td><td>How hard the computer fights.</td></tr>
+    <tr><td><b>Tag Team Pin Break</b></td><td>On, Off</td><td>Whether partners may run in to break up pins and holds (<span lang="ja">カットプレイ</span>, "cut play").</td></tr>
+    <tr><td><b>Ring Out</b></td><td>10 Count, 20 Count, Lumberjack, Off</td><td>The count when a wrestler is out of the ring. With Lumberjack, wrestlers stand around the ring and throw anyone who leaves it back in.</td></tr>
+    <tr><td><b>Commentary</b></td><td>On, Off</td><td>Giant Baba's colour commentary.</td></tr>
+    <tr><td><b>Play by Play</b></td><td>On, Off</td><td>The announcer's play-by-play.</td></tr>
+    <tr><td><b>Show Referee</b></td><td>On, Off</td><td>Whether the referee is shown.</td></tr>
+    <tr><td><b>Ring</b></td><td>Normal, Old Style, Original</td><td>The ring: Normal, Old Style or Original type.</td></tr>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="controls">
+  <h2>Controls</h2>
+  <p>Every wrestler uses the same button layout, but what each button does depends on the wrestler. Each has his own clutches, strikes and finishers. The moves below are Jun Akiyama's. The original game came with a booklet listing every wrestler's moves; the best way to learn your wrestler is to try each button in each position.</p>
+  <figure class="pad">
+    <svg viewBox="0 62 1040 342" role="img" aria-labelledby="padTitle">
+      <title id="padTitle">A PlayStation controller with what each button does in a match</title>
+      <g class="pad-shoulder">
+        <rect class="back" x="345" y="72" width="80" height="16" rx="5"/><rect class="back" x="615" y="72" width="80" height="16" rx="5"/>
+        <rect x="338" y="84" width="94" height="18" rx="6"/><rect x="608" y="84" width="94" height="18" rx="6"/>
+        <text x="385" y="98">L1</text><text x="655" y="98">R1</text>
+      </g>
+      <path class="pad-body" d="M370 100 H670 C720 100 760 125 770 175 C782 235 782 300 760 335 C742 362 706 360 692 332 L662 270 C655 258 645 252 630 252 H410 C395 252 385 258 378 270 L348 332 C334 360 298 362 280 335 C258 300 258 235 270 175 C280 125 320 100 370 100 Z"/>
+      <circle class="pad-well" cx="400" cy="175" r="48"/>
+      <circle class="pad-well" cx="640" cy="175" r="52"/>
+      <path class="pad-dpad" d="M388 135 h24 v28 h28 v24 h-28 v28 h-24 v-28 h-28 v-24 h28 Z"/>
+      <rect class="pad-pill" x="466" y="186" width="30" height="10" rx="5"/>
+      <rect class="pad-pill" x="544" y="186" width="30" height="10" rx="5"/>
+      <g class="pad-face">
+        <circle cx="640" cy="140" r="16"/><text x="640" y="146" class="t">△</text>
+        <circle cx="675" cy="175" r="16"/><text x="675" y="181" class="o">○</text>
+        <circle cx="640" cy="210" r="16"/><text x="640" y="216" class="x">×</text>
+        <circle cx="605" cy="175" r="16"/><text x="605" y="181" class="s">□</text>
+      </g>
+      <g class="pad-lead">
+        <path d="M338 93 H250"/><circle cx="338" cy="93" r="2.5"/>
+        <path d="M360 175 H250"/><circle cx="360" cy="175" r="2.5"/>
+        <path d="M702 93 H790"/><circle cx="702" cy="93" r="2.5"/>
+        <path d="M656 140 H790"/><circle cx="656" cy="140" r="2.5"/>
+        <path d="M691 175 H790"/><circle cx="691" cy="175" r="2.5"/>
+        <path d="M656 210 H790"/><circle cx="656" cy="210" r="2.5"/>
+        <path d="M605 191 V245 H790"/><circle cx="605" cy="191" r="2.5"/>
+        <path d="M481 196 V372"/><circle cx="481" cy="196" r="2.5"/>
+        <path d="M559 196 V372"/><circle cx="559" cy="196" r="2.5"/>
+      </g>
+      <g class="pad-label">
+        <text x="242" y="89" class="l"><tspan class="k">Soul button</tspan><tspan x="242" dy="19">big moves, Soul kick-outs</tspan></text>
+        <text x="242" y="181" class="l">Move, run, aim whips</text>
+        <text x="798" y="89" class="r"><tspan class="k">Grab</tspan><tspan x="798" dy="19">hold with a face button</tspan></text>
+        <text x="798" y="146" class="r">Whip, tag your partner</text>
+        <text x="798" y="181" class="r">Strike</text>
+        <text x="798" y="216" class="r">Kick</text>
+        <text x="798" y="251" class="r">Strike; pin at a downed man's arm</text>
+        <text x="472" y="392" class="l"><tspan class="k">SELECT</tspan> + □ or ×: taunt</text>
+        <text x="568" y="392" class="r"><tspan class="k">START</tspan>: pause</text>
+      </g>
+    </svg>
+  </figure>
+
+  <h3 id="controls-basics">The Basics</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Action</th><th>Buttons</th><th>Notes</th></tr>
+    <tr><td><b>Strikes</b></td><td><kbd class="ps ps-sq">□</kbd> <kbd class="ps ps-x">×</kbd> <kbd class="ps ps-o">○</kbd></td><td>Each button is a different strike, and a direction changes it. Akiyama: □ chop, × kick, ○ low dropkick; with a direction, an elbow, toe kick or dropkick.</td></tr>
+    <tr><td><b>Grapple (clutch)</b></td><td><kbd>R1</kbd> + <kbd class="ps ps-sq">□</kbd> <kbd class="ps ps-x">×</kbd> <kbd class="ps ps-o">○</kbd> <kbd class="ps ps-t">△</kbd></td><td>Each button, or pair of buttons, grabs in a different grip. See <a href="#controls-clutch">Clutches</a>.</td></tr>
+    <tr><td><b>Irish whip</b></td><td>direction + <kbd class="ps ps-t">△</kbd></td><td>Into the ropes or a corner, depending on where you aim.</td></tr>
+    <tr><td><b>Throw out of the ring</b></td><td>direction + <kbd>R1</kbd> + <kbd class="ps ps-t">△</kbd></td><td></td></tr>
+    <tr><td><b>Tag your partner</b></td><td>toward him + <kbd class="ps ps-t">△</kbd></td><td>In your own corner.</td></tr>
+    <tr><td><b>Running moves</b></td><td><kbd class="ps ps-sq">□</kbd> <kbd class="ps ps-x">×</kbd> <kbd class="ps ps-o">○</kbd> while running</td><td>Akiyama: jumping elbow, jumping knee, lariat; a facecrusher from behind.</td></tr>
+    <tr><td><b>Counter a charge</b></td><td>toward him + <kbd>R1</kbd> + <kbd class="ps ps-sq">□</kbd> <kbd class="ps ps-x">×</kbd> <kbd class="ps ps-o">○</kbd></td><td>As the opponent runs at you.</td></tr>
+    <tr><td><b>Pin</b></td><td><kbd class="ps ps-sq">□</kbd> at the arm</td><td>Stand beside a downed opponent's arm.</td></tr>
+    <tr><td><b>Power pin</b></td><td><kbd>L1</kbd> + <kbd class="ps ps-o">○</kbd> at the arm</td><td>A pin with everything behind it; costs a Soul.</td></tr>
+    <tr><td><b>Kick out</b></td><td>mash the buttons</td><td>Or press <kbd>L1</kbd> to kick out with a Soul.</td></tr>
+    <tr><td><b>Taunt</b></td><td><kbd>SELECT</kbd> + <kbd class="ps ps-sq">□</kbd> or <kbd class="ps ps-x">×</kbd></td><td></td></tr>
+    <tr><td><b>Pause</b></td><td><kbd>START</kbd></td><td>Continue or quit, and the camera: Normal, Ringside, Balcony or Wrestler.</td></tr>
+  </table></div>
+  <div class="callout"><strong class="label">Face your man</strong><p>Your wrestler doesn't turn to face the opponent by himself. Point the d-pad at him before you strike or grapple, or the move goes into thin air.</p></div>
+  <p><b>On the mat.</b> Where you stand matters. At a downed opponent's head, the buttons give stomps and holds on the neck, and <kbd>R1</kbd> + button picks him up into a clutch. At the arm, □ pins and the others give armbars and knee drops. At the legs you get leg holds such as the figure-four and a scorpion deathlock. <kbd class="ps ps-t">△</kbd> drags him or turns him over. In the corner you get corner strikes, superplexes from the top rope (<span lang="ja">雪崩式</span>), and dives from the top to a downed opponent.</p>
+  <p><b>Fatigue.</b> Every move costs stamina. Throw too much too fast and your wrestler runs out of breath and stands there gasping, open to anything, for a while. Pace yourself the way All Japan's wrestlers did: wear the opponent down, then go for the big moves.</p>
+
+  <h3 id="controls-clutch">Clutches</h3>
+  <p>Grapples go through a <b>clutch</b> (<span lang="ja">クラッチ</span>), a grip on the opponent. Each grab button gives a different clutch, and from it the buttons give that clutch's moves: plain buttons for the lighter ones, <kbd>R1</kbd> + button for the stronger or pinning versions, and <kbd>L1</kbd> + <kbd class="ps ps-t">△</kbd> (or <kbd>L1</kbd> + <kbd>R1</kbd> + <kbd class="ps ps-t">△</kbd>) for the big ones, which cost a Soul. The timing takes practice. Here is Jun Akiyama's set:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Grab</th><th>Clutch</th><th>Moves from it</th></tr>
+    <tr><td><kbd>R1</kbd> + <kbd class="ps ps-t">△</kbd></td><td><b>Tie-up</b> (collar and elbow)</td><td>□ headlock, × flying mare, ○ tombstone, △ hammer throw; R1 + □ go behind, R1 + × body slam, R1 + ○ neckbreaker, R1 + △ throw to the floor; L1 + △ dragon screw, L1 + R1 + △ Blue Thunder</td></tr>
+    <tr><td><kbd>R1</kbd> + <kbd class="ps ps-sq">□</kbd></td><td><b>DDT</b></td><td>□ knee lift, × DDT, ○ or △ arm-trap DDT</td></tr>
+    <tr><td><kbd>R1</kbd> + <kbd class="ps ps-x">×</kbd></td><td><b>Exploder</b></td><td>□ knee lift, × stomach crusher, ○ or △ Exploder; L1 + △ wrist-clutch Exploder</td></tr>
+    <tr><td><kbd>R1</kbd> + <kbd class="ps ps-o">○</kbd></td><td><b>Northern Lights</b></td><td>□ elbow, × ○ △ Northern Lights suplex (whip); R1 + × ○ △ Northern Lights suplex hold</td></tr>
+    <tr><td><kbd>R1</kbd> + <kbd class="ps ps-sq">□</kbd><kbd class="ps ps-x">×</kbd></td><td><b>Brainbuster</b></td><td>□ body punches, × ○ △ brainbuster; L1 + △ vertical brainbuster</td></tr>
+    <tr><td><kbd>R1</kbd> + <kbd class="ps ps-t">△</kbd><kbd class="ps ps-o">○</kbd></td><td><b>Double underhook</b></td><td>× double-arm DDT, ○ Pedigree, △ double-arm suplex; L1 + △ Tiger Driver</td></tr>
+    <tr><td>from behind</td><td><b>Backdrop / German</b></td><td>Rear grips for backdrops, German suplexes and Blue Thunder; in a tag match, □ holds him in a full nelson for your partner</td></tr>
+  </table></div>
+
+  <h3 id="controls-soul">The Soul Button</h3>
+  <p><kbd>L1</kbd> is the <b>Soul</b> button (<span lang="ja">魂</span>, <i>tamashii</i>). Each wrestler has a fixed number of Souls by rank: two for young wrestlers, up to four for the top stars. A Soul pays for one of two things:</p>
+  <ul>
+    <li><b>A big move</b>: the <kbd>L1</kbd> moves in each clutch, and the power pin.</li>
+    <li><b>A Soul kick-out</b>: press <kbd>L1</kbd> while being pinned to kick out of a pin you'd otherwise lose.</li>
+  </ul>
+  <p>As long as a wrestler has a Soul left he can kick out, so a match turns into a battle to drain the other man's Souls before you run out of yours. That is where the game's 2.9 near-falls come from.</p>
+
+  <h3 id="controls-finish">How Matches End</h3>
+  <p>Pinfall, submission, a count-out, or the time limit. The result screen names the finish, and the near-falls show on screen as they happen: <b>Count 1</b>, <b>Count 2</b>, <b>Count 2.9</b>, <b>Rope Break</b> (a hold or pin broken by reaching the ropes), <b>Give up</b>, <b>Ring Out</b>. The finishes the game names:</p>
+  <div class="tablewrap"><table class="finish-table">
+    <thead><tr><th>On screen</th><th>Japanese</th><th>On screen</th><th>Japanese</th><th>On screen</th><th>Japanese</th></tr></thead>
+    <tbody id="finishRows"></tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="roster">
+  <h2>The Roster</h2>
+  <p>The All Japan roster of early 1999: twenty-five wrestlers under their real names, with Jumbo Tsuruta, All Japan's former ace, among them. The <b>#</b> is the wrestler's place in the Edit Wrestler Body Type list; every body is open from the start except Tsuruta's. <b>Five Crowns</b> says which chapter he can be played in; <i>code</i> means he joins only with a button code (see <a href="#sec-crowns">Secrets</a>).</p>
+  <div class="roster-split" id="rosterTables"></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="crowns">
+  <h2>Path of the Five Crowns <span class="jp" lang="ja">五冠王の軌跡</span></h2>
+  <p>The career mode. Five belts make an All Japan "five-crown champion": the three of the <b>Triple Crown Heavyweight</b> title (the International, United National and PWF Heavyweight belts) and the two of the <b>World Tag Team</b> title (the International Tag and PWF World Tag belts). The intro tells their history, with quotes from Misawa, Kawada and Jumbo Tsuruta.</p>
+  <p>In practice the goal is set by Giant Baba, who runs the promotion: wrestle the tours, build a record that the fans respect, and earn a shot at the Triple Crown. Every match is judged as well as won or lost. Baba's maxim: <i>"We don't have DQ or count-out losses, so your wins need to be convincing enough to satisfy the crowd."</i></p>
+  <p>Choose <b>New</b> to start, <b>Continue</b> to load a save, or <b>Load</b> to play the mode as a created wrestler from the Memory Card.</p>
+
+  <h3 id="crowns-chapters">The Two Chapters</h3>
+  <p>Both chapters start with the <b>Summer Action Series</b> and end in a Triple Crown shot if you've earned it. They differ in the wrestlers you can pick, how long you have, and the schedule. The rosters below are the normal ones; the full lists are in <a href="#sec-crowns">Secrets</a>.</p>
+  <div class="chapters">
+    <div class="chapter">
+      <h4>The Royal Road: Succession <span class="jp" lang="ja">王道継承編</span></h4>
+      <p>Play an established star, in <b>one year</b>.</p>
+      <ul class="namelist" id="crownsSucc"></ul>
+    </div>
+    <div class="chapter">
+      <h4>The Royal Road: Ascent <span class="jp" lang="ja">王道飛躍編</span></h4>
+      <p>Play a young up-and-comer, in <b>two years</b>.</p>
+      <ul class="namelist" id="crownsAsc"></ul>
+    </div>
+  </div>
+
+  <h3 id="crowns-schedule">The Schedule</h3>
+  <p>Each week starts on the <b>SCHEDULE</b> screen. The date bar reads year, month and week (<b>1 Y 7 M 1 WK</b>), the map shows where the tour is, and Baba comments on the coming match. The menu:</p>
+  <ul>
+    <li><b>Advance</b>: go on to this week's event.</li>
+    <li><b>Training</b>: train before you advance (see <a href="#crowns-training">Training</a>). Baba asks if you're sure when you advance without training.</li>
+    <li><b>Tour Dates</b>: the month ahead, week by week. Each week is a series event at a venue (<b>Evt.</b>), a <b>Travel Day</b> or <b>Off</b>. Your card (singles, tag or battle royal, main event or mid-card) and the opponent, or <b>Opponent TBD</b>, show beside it.</li>
+    <li><b>Save</b>: save the career to the Memory Card.</li>
+    <li><b>Quit</b>: leave the mode. The game warns you if you haven't saved.</li>
+  </ul>
+  <p>The tour follows All Japan's real calendar of series, from the Summer Action Series through the Giant Series, the year-end World's Strongest Tag League, the New Year Giant Series and the spring Champion Carnival. Between them come one-off shows: Fan Appreciation Day, the Budokan, the Tokyo Dome.</p>
+  <div class="shots">
+    <figure><img src="../screenshots/guide-five-crowns-schedule.png" alt="The schedule screen: a map of Japan, the current series and venue, Baba's comment and the menu" width="320" height="231" loading="lazy"><figcaption>The schedule: year 1, month 7, week 1, in Tokyo.</figcaption></figure>
+    <figure><img src="../screenshots/guide-five-crowns-tour.png" alt="The tour dates screen with four weeks of events" width="320" height="231" loading="lazy"><figcaption>Tour Dates. The week tabs still read 1週 to 4週, "week 1" to "week 4".</figcaption></figure>
+  </div>
+
+  <h3 id="crowns-training">Training</h3>
+  <figure class="shot side"><img src="../screenshots/guide-five-crowns-training.png" alt="The training screen: condition line, injury diagram, ATK DEF CTR tabs and the training menu" width="320" height="231" loading="lazy"><figcaption>Training. The wrestler's condition is at the top, injuries on the body diagram.</figcaption></figure>
+  <p>Training raises your wrestler's ratings: <b>ATK</b> (attack), <b>DEF</b> (defence) and <b>CTR</b> (counters), with five styles under them: <b>Strike</b>, <b>Power</b>, <b>Tech</b>, <b>Flying</b> and <b>Ground</b>. Choose one of:</p>
+  <div class="tablewrap beside"><table>
+    <tr><th>Training</th><th>Japanese</th><th>What it is</th></tr>
+    <tr><td><b>Lift</b></td><td lang="ja">筋トレ</td><td>Weight training.</td></tr>
+    <tr><td><b>Running</b></td><td lang="ja">走りこみ</td><td>Roadwork.</td></tr>
+    <tr><td><b>Bumps</b></td><td lang="ja">受け身</td><td>Practising breakfalls (<i>ukemi</i>): learning to take a move safely.</td></tr>
+    <tr><td><b>Sparring</b></td><td lang="ja">スパーリング</td><td>Sparring in the ring.</td></tr>
+    <tr><td><b>Rest</b></td><td lang="ja">休養</td><td>Recover instead of training.</td></tr>
+  </table></div>
+  <p>Watch the wrestler's own line at the top: "Feeling good... no problems at all" is what you want, and "My body feels heavy" means rest. The <b>INJURIES</b> diagram marks hurt body parts (neck, elbow, back, knee). Keep fighting hurt and Baba may tell you to sit out the rest of the year.</p>
+
+  <h3 id="crowns-events">Events</h3>
+  <p>Besides the weekly tour matches, the career has special events. Each one starts with a title card (in Japanese) and a word from Baba:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Event</th><th>Japanese</th><th>What happens</th></tr>
+    <tr><td><b>Choose Your Tag Partner</b></td><td lang="ja">タッグパートナー指名</td><td>Pick your partner for the tag titles and the tag league. You keep him until the next chance, so choose carefully.</td></tr>
+    <tr><td><b>Reverse Nomination</b></td><td lang="ja">逆指名</td><td>Another wrestler asks you to be <i>his</i> partner.</td></tr>
+    <tr><td><b>World Tag Team Title Match</b></td><td lang="ja">世界タッグ選手権試合</td><td>A shot at the World Tag Team belts.</td></tr>
+    <tr><td><b>All Asia Tag Team Title Match</b></td><td lang="ja">アジアタッグ選手権試合</td><td>All Japan's junior tag belts.</td></tr>
+    <tr><td><b>Triple Crown Heavyweight Title Match</b></td><td lang="ja">三冠ヘビー級選手権試合</td><td>The goal of the mode.</td></tr>
+    <tr><td><b>World's Strongest Tag League Final</b> / <b>Champion Carnival Final</b></td><td lang="ja">優勝決定戦</td><td>The finals of the two tournaments.</td></tr>
+    <tr><td><b>Outside Wrestlers Invade All Japan!</b> / <b>Overseas Wrestlers Invade All Japan!</b></td><td lang="ja">他団体レスラー全日本プロレス参戦!</td><td>Wrestlers from other promotions, at home or abroad, come to All Japan.</td></tr>
+    <tr><td><b>Guest Shot Elsewhere!</b></td><td lang="ja">他団体参戦</td><td>Wrestle for another promotion: you choose which.</td></tr>
+    <tr><td><b>Overseas Tour!</b></td><td lang="ja">海外マット参戦!</td><td>A tour abroad.</td></tr>
+    <tr><td><b>Dream Singles Match</b></td><td lang="ja">夢のシングルマッチ</td><td>Choose a legend "who once defined an era" to face.</td></tr>
+    <tr><td><b>Fan Appreciation Day</b> / <b>AJPW 25th Anniversary Dome Show</b></td><td lang="ja">ファン感謝デー / ドーム大会</td><td>The special shows.</td></tr>
+  </table></div>
+  <p>Some weeks hold a <b>Secret Match</b> (<span lang="ja">隠し試合</span>) on the tour dates. We don't yet know what decides it.</p>
+  <p>Between matches Baba hands out <b>Baba's Maxims</b> (<span lang="ja">馬場格言</span>), short lessons in his style of wrestling. They're worth reading: they are the closest thing the mode has to a manual.</p>
+
+  <h3 id="crowns-tours">Tours and Venues</h3>
+  <p>The series on the tour, and the prefectures and arenas the tour visits:</p>
+  <div class="two-lists">
+    <div><h4>Series</h4><ul class="namelist" id="tourList"></ul></div>
+    <div><h4>Venues</h4><ul class="namelist cols" id="venueList"></ul></div>
+  </div>
+
+  <h3 id="crowns-end">Baba's Evaluation</h3>
+  <p>At the season's turning points Baba gives his <b>Match Evaluation</b> (<span lang="ja">馬場試合評価判定</span>): one of ten verdicts on your matches, from a title shot to "start over from scratch". The verdicts weigh your record, whether your matches pleased the crowd, and your health.</p>
+  <details class="spoiler">
+    <summary>Spoiler: the ten verdicts</summary>
+    <ol class="verdicts">
+      <li><b>The title shot.</b> "Consider the next Triple Crown shot yours."</li>
+      <li><b>The highest praise.</b> "I have nothing to add and nothing left to teach. I'm counting on you to keep leading All Japan as its ace."</li>
+      <li><b>Better than expected.</b> "But the higher you go, the tougher it gets."</li>
+      <li><b>Working hard.</b> "Now the question is whether you'll want to lead the promotion yourself."</li>
+      <li><b>Not quite.</b> "Have you done enough to challenge for the Triple Crown? ...I can't quite say yes."</li>
+      <li><b>Good technique, green psychology.</b> "Set yourself goals and work on them every match."</li>
+      <li><b>Lacking for a main eventer.</b> "Take the rest of the series one match at a time."</li>
+      <li><b>Coasting.</b> "At this point in your career you can't coast."</li>
+      <li><b>Injured.</b> "Rest up this year and aim for a comeback next year."</li>
+      <li><b>Not wrestling at all.</b> "Start over from scratch as a wrestler and take this seriously."</li>
+    </ol>
+    <p>Clearing a chapter lets you save <b>clear data</b> to the Memory Card, and unlocks Title Match and more Edit Wrestler parts (see <a href="#secrets">Secrets</a>).</p>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<section id="edit">
+  <h2>Edit Wrestler <span class="jp" lang="ja">レスラーエディット</span></h2>
+  <figure class="shot side"><img src="../screenshots/guide-edit-wrestler.png" alt="The Edit Wrestler screen with the menu Name, Body, Moves, Logic, Intro, Save, Exit and the info panel" width="320" height="231" loading="lazy"><figcaption>Edit Wrestler. The panel shows what you've chosen so far.</figcaption></figure>
+  <p>Create a new wrestler, or load one from the Memory Card to change him. The menu:</p>
+  <ul>
+    <li><b>Name</b>: the full name and a short name, typed in hiragana, katakana, Latin letters (ABC) or kanji.</li>
+    <li><b>Body</b>: size, body type and colour (see <a href="#edit-body">Body</a>).</li>
+    <li><b>Moves</b>: the move set. A created wrestler takes a whole move set from one wrestler; you don't pick moves one by one.</li>
+    <li><b>Logic</b>: how the computer fights with him: logic, style and pace (see <a href="#edit-logic">Logic</a>).</li>
+    <li><b>Intro</b>: his entrance and entrance music.</li>
+    <li><b>Save</b> and <b>Exit</b>. Then register him in an Edit Slot under <a href="#modes-data">Manage Data</a> to use him in matches.</li>
+  </ul>
+  <p>Not every part is open at first: clearing each chapter of Path of the Five Crowns opens more. The tables below say which.</p>
+
+  <h3 id="edit-body">Body</h3>
+  <p><b>Size</b> has twelve steps: four heights (S, M, L, LL), each slim, medium or heavy. <b>Type</b> is the body model, one of the 44 below: every real wrestler's body and those of the fictional wrestlers. <b>Color</b> picks one of the body's four costumes.</p>
+
+  <h3 id="edit-types">Body Types and Move Sets</h3>
+  <p>The lists follow the game's own order. The first 44 names are both a body and a move set; the last 14 are move sets of fictional wrestlers who share another's body.</p>
+  <p>A body type and its move set always open together. Names marked <span class="ms">move set</span> are move sets only.</p>
+  <div class="unlock-cols" id="typeCols"></div>
+
+  <h3 id="edit-logic">Logic</h3>
+  <p><b>Logic</b> is the wrestler's fighting pattern when the computer controls him. <b>Style</b> (<span lang="ja">こだわり</span>, his preference) picks the kind of move he favours: Counters, Front Throws, Rear Throws, Strikes, Mat Moves or High-Flying. <b>Pace</b> (<span lang="ja">試合運び</span>, how he builds a match) is Skilled, Average or Poor. Logic types with no tag are open from the start.</p>
+  <div class="tablewrap"><table class="datatable">
+    <thead><tr><th>How it fights</th><th>Logic types</th></tr></thead>
+    <tbody id="logicRows"></tbody>
+  </table></div>
+
+  <h3 id="edit-intro">Intro</h3>
+  <p>The entrance and the entrance music. There are <span id="entranceCount"></span> entrances; <span id="entranceStart"></span> are open from the start, and the rest come with the chapter clears. Press <kbd class="ps ps-t">△</kbd> to preview the entrance.</p>
+
+  <h3 id="edit-fictional">The Fictional Wrestlers</h3>
+  <p>Behind the edit bodies are 76 fictional wrestlers, four to each of 19 bodies, one per colour. In the long tradition of Human's <i>Fire Pro Wrestling</i> series, most are thinly disguised stars of other promotions: Steel James, Big the Great Bull, Giant the Roshmoff, Rairyu, Mask de Panther and dozens more. Some appear in Path of the Five Crowns, when outside wrestlers invade All Japan; the first of each body gives its name to the body type. The names come from the game's own costume list.</p>
+  <div class="tablewrap"><table class="datatable fict">
+    <thead><tr><th>Body</th><th>Colour 1</th><th>Colour 2</th><th>Colour 3</th><th>Colour 4</th></tr></thead>
+    <tbody id="fictRows"></tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="secrets">
+  <h2>Secrets</h2>
+  <p>What the game keeps locked, and how to open it. Everything here is open from the start with the <b>Unlocks</b> patches. The technical side (addresses and how each was found) is in the project's <a href="https://github.com/kactusken/Ouja-no-Tamashii-English-Translation/blob/main/docs/NOTES.md">technical notes</a>.</p>
+
+  <h3 id="sec-title">Title Match</h3>
+  <details class="spoiler">
+    <summary>Spoiler: how to unlock Title Match</summary>
+    <p>Clear either chapter of Path of the Five Crowns, then save the system data. Title Match appears on the mode select, before Survival Match.</p>
+    <p>A Japanese cheat site (GAME TRICK!!) reports a special ending in Title Match when Giant Baba beats Mitsuharu Misawa. We haven't seen it ourselves.</p>
+  </details>
+
+  <h3 id="sec-survival">Survival Match</h3>
+  <details class="spoiler">
+    <summary>Spoiler: how to unlock Survival Match</summary>
+    <p>In the original game, you can't. The mode is finished and works, but the only thing that turns it on is a leftover developer control handler that the game never calls. The <b>Unlocks</b> patches put it on the mode select.</p>
+  </details>
+
+  <h3 id="sec-crowns">Five Crowns Rosters</h3>
+  <details class="spoiler">
+    <summary>Spoiler: button codes for more wrestlers</summary>
+    <p>On the Path of the Five Crowns wrestler select, hold buttons as the screen comes up:</p>
+    <div class="tablewrap"><table>
+      <tr><th>Hold</th><th>Succession</th><th>Ascent</th></tr>
+      <tr><td><kbd>SELECT</kbd> + <kbd>R2</kbd></td><td id="code1Succ"></td><td>no change</td></tr>
+      <tr><td><kbd>SELECT</kbd> + <kbd>R2</kbd> + <kbd>START</kbd> + <kbd>L1</kbd></td><td id="code2Succ"></td><td id="code2Asc"></td></tr>
+    </table></div>
+    <p>These were read from the game's code and haven't been tried on a real controller yet. The <b>Unlocks</b> patches always give the full lists.</p>
+  </details>
+
+  <h3 id="sec-edit">Edit Wrestler Unlocks</h3>
+  <details class="spoiler">
+    <summary>Spoiler: what each chapter clear opens</summary>
+    <p>Clearing <b>Succession</b> opens Jumbo Tsuruta and <span id="succList"></span>.</p>
+    <p>Clearing <b>Ascent</b> opens Jumbo Tsuruta and <span id="ascList"></span>.</p>
+    <p>Clear both for everything. A few parts can never be chosen: the move sets <span id="neverList"></span>, one logic type and three entrances sit past the end of their lists.</p>
+  </details>
+
+  <h3 id="sec-bodies">Hidden Bodies</h3>
+  <details class="spoiler">
+    <summary>Spoiler: the seven hidden bodies</summary>
+    <p>The game holds seven bodies that aren't in the Body Type list: <span id="hiddenList"></span>. In Edit Wrestler, choose one of these body types and hold <kbd>SELECT</kbd> while you confirm the Body page:</p>
+    <div class="tablewrap"><table>
+      <tr><th>Body type</th><th>Becomes</th></tr>
+      <tr><td>Giant Baba</td><td>Referee Kyohei Wada</td></tr>
+      <tr><td>Akira Taue</td><td>Takeshi Morishima</td></tr>
+      <tr><td>Masao Inoue, Satoru Asako, Kentaro Shiga, Yoshinobu Kanemaru, Maunakea Mossman</td><td>The same wrestler in his track suit</td></tr>
+    </table></div>
+    <p>In the original game this needs both chapters cleared <i>and</i> a setting that nothing in the game turns on, so it can't be done. The <b>Unlocks</b> patches make the trick work and also add the seven bodies to the end of the Body Type list.</p>
+  </details>
+
+  <h3 id="sec-dev">Developer Leftovers</h3>
+  <details class="spoiler">
+    <summary>Spoiler: what the developers left in</summary>
+    <ul>
+      <li><b>An entrance editor.</b> A developer tool for staging the entrance scenes: a fixed four-wrestler entrance on a loop, with on-screen debug text (camera position, motion frame, colours) and edit pages on the shoulder buttons. It is switched on only by a saved setting the game never writes.</li>
+      <li><b>Unused parts.</b> Akira Saeba (a lookalike of Akira Maeda) has a move set no one can choose; it, a second copy of Olympia Akutsu's, one logic type and three entrances sit past the end of their menus.</li>
+      <li><b>Hidden bodies.</b> The seven bodies above, among them the young Takeshi Morishima and referee Kyohei Wada.</li>
+    </ul>
+  </details>
+</section>
+
+<!-- ============================================================ -->
+<section id="glossary">
+  <h2>Japanese Glossary</h2>
+  <p>Terms you'll see on screen in the original game, and in the art the translation leaves in Japanese.</p>
+  <div class="tablewrap"><table class="gloss-table">
+    <tr><th>Japanese</th><th>Meaning</th><th>On screen in the translation</th></tr>
+    <tr><td class="jp-term"><span lang="ja">全日本プロレス</span><span class="r">Zen Nihon Puroresu</span></td><td>All Japan Pro Wrestling</td><td><b>AJPW</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">王者の魂</span><span class="r">Ōja no Tamashii</span></td><td>Soul of the Champion; Baba's entrance theme</td><td>(title logo, kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">五冠王の軌跡</span><span class="r">Gokan-ō no Kiseki</span></td><td>The path of the five-crown champion</td><td><b>Path of the 5 Crowns</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">王道</span><span class="r">ōdō</span></td><td>The royal road: All Japan's orthodox style</td><td><b>Royal Road</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">王道継承編</span><span class="r">Ōdō Keishō-hen</span></td><td>The royal road: the succession chapter</td><td><b>The Royal Road: Succession</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">王道飛躍編</span><span class="r">Ōdō Hiyaku-hen</span></td><td>The royal road: the leap chapter</td><td><b>The Royal Road: Ascent</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">三冠ヘビー級</span><span class="r">Sankan Hebī-kyū</span></td><td>Triple Crown Heavyweight</td><td><b>Triple Crown Heavyweight</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">世界タッグ</span><span class="r">Sekai Taggu</span></td><td>World Tag</td><td><b>World Tag Team</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">アジアタッグ</span><span class="r">Ajia Taggu</span></td><td>Asia Tag</td><td><b>All Asia Tag Team</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">選手権試合</span><span class="r">senshuken jiai</span></td><td>Championship match (on the title cards)</td><td>(kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">優勝決定戦</span><span class="r">yūshō ketteisen</span></td><td>Final</td><td>(kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">公式戦</span><span class="r">kōshiki-sen</span></td><td>Official league match</td><td>(kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">優勝</span><span class="r">yūshō</span></td><td>Victory, winning the tournament</td><td>(kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">王</span><span class="r">ō</span></td><td>King: the champion's marker</td><td>(kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">●　×　▲</span><span class="r"></span></td><td>Win, loss, draw on the league tables</td><td>(kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">青コーナー / 赤コーナー</span><span class="r">ao / aka kōnā</span></td><td>Blue corner / red corner</td><td><b>Blue / Red Corner</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">日本人 / 外国人</span><span class="r">Nihonjin / gaikokujin</span></td><td>Japanese / foreign (wrestlers)</td><td><b>AJPW / Gaijin</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">一本勝負 / 三本勝負</span><span class="r">ippon / sanbon shōbu</span></td><td>One-fall / three-fall match</td><td><b>1 Fall / 2 out of 3</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">カットプレイ</span><span class="r">katto purei</span></td><td>Cut play: breaking up pins</td><td><b>Tag Team Pin Break</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">場外カウント</span><span class="r">jōgai kaunto</span></td><td>Ring-out count</td><td><b>Ring Out</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">解説 / 実況</span><span class="r">kaisetsu / jikkyō</span></td><td>Colour commentary / play-by-play</td><td><b>Commentary / Play by Play</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">魂</span><span class="r">tamashii</span></td><td>Soul</td><td>(the L1 Soul button)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">ロジック</span><span class="r">rojikku</span></td><td>Logic: the AI pattern</td><td><b>Logic</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">こだわり</span><span class="r">kodawari</span></td><td>Preference, what he insists on</td><td><b>Style</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">試合運び</span><span class="r">shiai hakobi</span></td><td>How he builds a match</td><td><b>Pace</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">入場</span><span class="r">nyūjō</span></td><td>Entrance</td><td><b>Intro</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">日程</span><span class="r">nittei</span></td><td>Schedule</td><td><b>Schedule</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">月 / 週</span><span class="r">gatsu / shū</span></td><td>Month / week</td><td><b>M / WK</b> (the tour's week tabs keep 週)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">移動日</span><span class="r">idō-bi</span></td><td>Travel day</td><td><b>Travel Day</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">隠し試合</span><span class="r">kakushi jiai</span></td><td>Hidden match</td><td><b>Secret Match</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">逆指名</span><span class="r">gyaku-shimei</span></td><td>Reverse nomination</td><td>(event card, kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">馬場格言</span><span class="r">Baba kakugen</span></td><td>Baba's maxims</td><td>(kept)</td></tr>
+    <tr><td class="jp-term"><span lang="ja">負傷箇所</span><span class="r">fushō kasho</span></td><td>Injured areas</td><td><b>Injuries</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">攻撃 / 防御 / 返し</span><span class="r">kōgeki / bōgyo / kaeshi</span></td><td>Attack / defence / counter</td><td><b>ATK / DEF / CTR</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">超世代軍</span><span class="r">Chōsedai-gun</span></td><td>Super Generation Army: Misawa's faction</td><td><b>Super Gen. Army</b></td></tr>
+    <tr><td class="jp-term"><span lang="ja">聖鬼軍</span><span class="r">Seiki-gun</span></td><td>Holy Demon Army: Kawada and Taue's team</td><td><b>Holy Demon Army</b></td></tr>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="faq">
+  <h2>Q&amp;A</h2>
+  <h4 id="faq-english">Is there an English version?</h4>
+  <p>Not from the publisher: the game was only released in Japan. This guide was written alongside an English fan translation, released as a patch for your own copy of the game.</p>
+  <h4 id="faq-tsuruta">How do I play as Jumbo Tsuruta?</h4>
+  <p>Clear a chapter of Path of the Five Crowns to open his body and move set in Edit Wrestler. He can also be played in the Succession chapter with a button code (see <a href="#sec-crowns">Secrets</a>).</p>
+  <h4 id="faq-lose">I keep losing, even on CPU level 1.</h4>
+  <p>This is a slow, deliberate game. Mashing gets you nowhere. Face your opponent before every move, win the clutch before you try a big throw, don't burn your stamina early, and save your Souls for the end. Use them to kick out when the count reaches two.</p>
+  <h4 id="faq-created">My created wrestler doesn't show up on the wrestler select.</h4>
+  <p>Saving him isn't enough: register him in an Edit Slot under <a href="#modes-data">Manage Data</a>, then pick him from the Created tab.</p>
+  <h4 id="faq-japanese">Why is some text still in Japanese?</h4>
+  <p>The translation leaves stylised art alone: the logo, the brush-lettered names in the entrances, and the title cards for championship matches and events. Their meanings are in the <a href="#glossary">glossary</a>.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="credits">
+  <h2>Credits and Legal</h2>
+  <p>This guide is a non-commercial fan project, not affiliated with or endorsed by Human, Spike or All Japan Pro Wrestling. <i>Zen Nippon Pro Wrestling: Ouja no Tamashii</i> and its names, characters and trademarks belong to their owners.</p>
+  <p>The text is written in our own words, from play, the game's data and code, and the sources below. It contains no scans or images from any printed guidebook. The screenshots are from the English fan translation.</p>
+  <p>Sources:</p>
+  <ul>
+    <li><a href="https://amgblog.net/blog-entry-2844.html">kenのトイボックス</a> (AMG blog): a player's detailed notes on the controls and Jun Akiyama's moves.</li>
+    <li><a href="http://www.netlaputa.ne.jp/~t-akao/game/soft/ouja.html">さるともるたる！</a>: a 1999 review on the clutch and Soul systems and fatigue.</li>
+    <li><a href="https://web.archive.org/web/20181108225250/http://www.geocities.co.jp/Playtown-Toys/8782/gamereview/oujya.html">An archived GeoCities review</a>: the Soul button, the modes and the career goal.</li>
+    <li><a href="https://game333.web.fc2.com/PS/PS_se_zenniti-ouja.html">GAME TRICK!!</a>: the Title Match unlock and the special ending.</li>
+    <li><a href="https://www.gavas.jp/products/detail.php?product_id=9216">ピコピコ大百科</a> and <a href="https://mimora.mimoza.jp/yao_game/retro/contents/memorandum/PS/detail/gmr_PS-0032.php">ゲーム備忘録</a>: release details and mode descriptions.</li>
+    <li><a href="https://psxdatacenter.com/games/J/Z/SLPS-01849.html">PSX Data Center</a>: release and reissue details.</li>
+    <li><a href="https://prowrestlernickname.blogspot.com/2019/03/alljapanprowrestling.html">キャッチコピー異名一覧</a>: the roster and the fictional wrestlers.</li>
+  </ul>
+  <p>AI assisted with this guide.</p>
+  <p>The guide text is shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a> (CC BY-SA 4.0; see <a href="./LICENSE">LICENSE</a>). You're free to share and adapt it, as long as you credit this guide and share alike.</p>
+  <h3 id="contributing">Contributing</h3>
+  <p>Corrections are welcome: open an issue at <a href="https://github.com/kactusken/Ouja-no-Tamashii-English-Translation">github.com/kactusken/Ouja-no-Tamashii-English-Translation</a>. We'd especially like to hear about the controls of other wrestlers, the button codes, and what brings on a Secret Match.</p>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <div class="band" aria-hidden="true"><span></span><span></span></div>
+  <p>Zen Nippon Pro Wrestling: Ouja no Tamashii: a fan guide, version 1.0.</p>
+  <p>A non-commercial fan project, not affiliated with or endorsed by Human, Spike or All Japan Pro Wrestling. Guide text: <a href="./LICENSE">CC BY-SA 4.0</a>.</p>
+</footer>
+
+<div class="gres" id="gres" popover="manual" role="listbox" aria-label="Search results"></div>
+
+<dialog id="zoom" aria-label="Screenshot">
+  <div class="dlg-head"><p id="zoomCap"></p><button class="dlg-close" type="button" aria-label="Close">×</button></div>
+  <div class="dlg-body"><img id="zoomImg" alt=""></div>
+</dialog>
+
+<script>
+/* Page UI: theme toggle, the Contents (open on wide screens, collapsed on phones), the
+   current-section highlight, and the "About this guide" card. Nothing to edit here: the
+   Contents links are read from the markup. */
+(function () {
+  var root = document.documentElement;
+
+  /* Theme toggle */
+  var btn = document.getElementById('themeBtn');
+  var mqDark = window.matchMedia('(prefers-color-scheme: dark)');
+  function isDark() {
+    var t = root.getAttribute('data-theme');
+    return t ? t === 'dark' : mqDark.matches;
+  }
+  function syncTheme() {
+    var dark = isDark();
+    root.classList.toggle('is-dark', dark);
+    btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  btn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    syncTheme();
+  });
+  mqDark.addEventListener && mqDark.addEventListener('change', syncTheme);
+  syncTheme();
+
+  /* Contents: open on wide screens, collapsed on phones */
+  var toc = document.getElementById('toc');
+  var mqWide = window.matchMedia('(min-width: 960px)');
+  function syncToc() { toc.open = mqWide.matches; }
+  syncToc();
+  mqWide.addEventListener && mqWide.addEventListener('change', syncToc);
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !mqWide.matches) toc.open = false;
+  });
+
+  /* Highlight the section being read */
+  var links = {};
+  toc.querySelectorAll('a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  var targets = Object.keys(links).map(function (id) { return document.getElementById(id); }).filter(Boolean)
+    .sort(function (a, b) { return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1; });
+  var current = null, openLi = null;
+  function setCurrent(id) {
+    if (id === current) return;
+    if (current && links[current]) links[current].removeAttribute('aria-current');
+    current = id;
+    var a = links[id];
+    // the top-level entry that owns this link: open its sub-entries, close the last one
+    var li = a ? a.closest('li') : null;
+    while (li && li.parentElement.closest('li')) li = li.parentElement.closest('li');
+    if (li !== openLi) {
+      if (openLi) openLi.classList.remove('open');
+      if (li) li.classList.add('open');
+      openLi = li;
+    }
+    if (!a) return;
+    a.setAttribute('aria-current', 'true');
+    // keep it visible inside the sidebar without scrolling the page
+    var t = toc.getBoundingClientRect(), r = a.getBoundingClientRect();
+    if (r.top < t.top + 40) toc.scrollTop -= (t.top + 40 - r.top);
+    else if (r.bottom > t.bottom - 40) toc.scrollTop += (r.bottom - (t.bottom - 40));
+  }
+  function onScroll() {
+    var line = window.innerHeight * 0.25, best = null;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i].getBoundingClientRect().top - line <= 0) best = targets[i].id; else break;
+    }
+    setCurrent(best);
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; onScroll(); }); }
+  }, { passive: true });
+  onScroll();
+})();
+
+/* About this guide: a card shown on hover or focus of the hero button, or toggled by a click */
+(function () {
+  var btn = document.getElementById('aboutBtn'), card = document.getElementById('aboutCard');
+  if (!btn || !card || !card.showPopover) return;
+  var timer = null, pinned = false;
+  function place() {
+    var r = btn.getBoundingClientRect();
+    card.style.top = (r.bottom + window.scrollY + 8) + 'px';
+    card.style.left = Math.max(16, Math.min(r.left, document.documentElement.clientWidth - card.offsetWidth - 16)) + window.scrollX + 'px';
+  }
+  function show() {
+    clearTimeout(timer);
+    if (!card.matches(':popover-open')) { card.showPopover(); place(); }
+    btn.setAttribute('aria-expanded', 'true');
+  }
+  function hide() {
+    clearTimeout(timer); pinned = false;
+    if (card.matches(':popover-open')) card.hidePopover();
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  function later() { if (!pinned) { clearTimeout(timer); timer = setTimeout(hide, 220); } }
+  btn.addEventListener('mouseenter', show);
+  btn.addEventListener('mouseleave', later);
+  btn.addEventListener('focus', show);
+  btn.addEventListener('blur', function () { setTimeout(function () { if (!card.contains(document.activeElement)) later(); }, 0); });
+  card.addEventListener('mouseenter', function () { clearTimeout(timer); });
+  card.addEventListener('mouseleave', later);
+  card.addEventListener('focusout', function (e) { if (!card.contains(e.relatedTarget) && e.relatedTarget !== btn) later(); });
+  btn.addEventListener('click', function () {
+    if (pinned) { hide(); } else { pinned = true; show(); }
+  });
+  card.addEventListener('click', function (e) { if (e.target.closest('a')) hide(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && card.matches(':popover-open')) { hide(); btn.focus(); } });
+  document.addEventListener('pointerdown', function (e) { if (pinned && !card.contains(e.target) && e.target !== btn && !btn.contains(e.target)) hide(); });
+  window.addEventListener('resize', function () { if (card.matches(':popover-open')) place(); });
+})();
+</script>
+<script type="application/json" id="page-data">{"entries":[{"id":"w0","name":"Giant Baba","group":"Wrestler","text":"ジャイアント馬場"},{"id":"w1","name":"Mitsuharu Misawa","group":"Wrestler","text":"三沢光晴"},{"id":"w2","name":"Toshiaki Kawada","group":"Wrestler","text":"川田利明"},{"id":"w3","name":"Akira Taue","group":"Wrestler","text":"田上明"},{"id":"w4","name":"Kenta Kobashi","group":"Wrestler","text":"小橋健太"},{"id":"w5","name":"Jun Akiyama","group":"Wrestler","text":"秋山準"},{"id":"w6","name":"Hiroshi Hase","group":"Wrestler","text":"馳浩"},{"id":"w7","name":"Takao Omori","group":"Wrestler","text":"大森隆男"},{"id":"w8","name":"Tamon Honda","group":"Wrestler","text":"本田多聞"},{"id":"w9","name":"Jun Izumida","group":"Wrestler","text":"泉田純"},{"id":"w10","name":"Masao Inoue","group":"Wrestler","text":"井上雅央"},{"id":"w11","name":"Masanobu Fuchi","group":"Wrestler","text":"渕正信"},{"id":"w12","name":"Tsuyoshi Kikuchi","group":"Wrestler","text":"菊地毅"},{"id":"w13","name":"Yoshinari Ogawa","group":"Wrestler","text":"小川良成"},{"id":"w14","name":"Satoru Asako","group":"Wrestler","text":"浅子覚"},{"id":"w15","name":"Kentaro Shiga","group":"Wrestler","text":"志賀賢太郎"},{"id":"w16","name":"Yoshinobu Kanemaru","group":"Wrestler","text":"金丸義信"},{"id":"w17","name":"Stan Hansen","group":"Wrestler","text":"スタン・ハンセン"},{"id":"w18","name":"Gary Albright","group":"Wrestler","text":"ゲーリー・オブライト"},{"id":"w19","name":"Johnny Ace","group":"Wrestler","text":"ジョニー・エース"},{"id":"w20","name":"Johnny Smith","group":"Wrestler","text":"ジョニー・スミス"},{"id":"w21","name":"Giant Kimala","group":"Wrestler","text":"ジャイアント・キマラ"},{"id":"w22","name":"Maunakea Mossman","group":"Wrestler","text":"マウナケア・モスマン"},{"id":"w23","name":"Jumbo Tsuruta","group":"Wrestler","text":"ジャンボ鶴田"},{"id":"w24","name":"Vader","group":"Wrestler","text":"ベイダー"},{"id":"f-Steel James","name":"Steel James","group":"Fictional wrestler","text":"スティール・ジェイムス"},{"id":"f-Flash Burton","name":"Flash Burton","group":"Fictional wrestler","text":"フラッシュ・バートン"},{"id":"f-Axe Dugan","name":"Axe Dugan","group":"Fictional wrestler","text":"アックス・ドゥガン"},{"id":"f-Dad Davis","name":"Dad Davis","group":"Fictional wrestler","text":"ダッド・デイビス"},{"id":"f-Ranmaru","name":"Ranmaru","group":"Fictional wrestler","text":"ランマル"},{"id":"f-Dark Ranmaru","name":"Dark Ranmaru","group":"Fictional wrestler","text":"ダーク・ランマル"},{"id":"f-Tattoo","name":"Tattoo","group":"Fictional wrestler","text":"タトゥー"},{"id":"f-HAYATE","name":"HAYATE","group":"Fictional wrestler","text":"ＨＡＹＡＴＥ"},{"id":"f-Jinsui Kanzaki","name":"Jinsui Kanzaki","group":"Fictional wrestler","text":"神崎仁水"},{"id":"f-Fumihito Kihara","name":"Fumihito Kihara","group":"Fictional wrestler","text":"木原文人"},{"id":"f-Toshi Goto","name":"Toshi Goto","group":"Fictional wrestler","text":"トシ護東"},{"id":"f-General Bordeaux","name":"General Bordeaux","group":"Fictional wrestler","text":"ジェネラル・ボルドー"},{"id":"f-Big the Great Bull","name":"Big the Great Bull","group":"Fictional wrestler","text":"ビック・ザ・グレート・ブル"},{"id":"f-Texas Kerry","name":"Texas Kerry","group":"Fictional wrestler","text":"テキサス・ケリー"},{"id":"f-The Underground","name":"The Underground","group":"Fictional wrestler","text":"ジ・アンダーグラウンド"},{"id":"f-Kerry Bogey","name":"Kerry Bogey","group":"Fictional wrestler","text":"ケリー・ボギー"},{"id":"f-Giant the Roshmoff","name":"Giant the Roshmoff","group":"Fictional wrestler","text":"ジャイアント・ザ・ロシュモフ"},{"id":"f-Big Obayashi","name":"Big Obayashi","group":"Fictional wrestler","text":"ビッグ大林"},{"id":"f-Great Giant","name":"Great Giant","group":"Fictional wrestler","text":"グレート・ジャイアント"},{"id":"f-Victory Musashi","name":"Victory Musashi","group":"Fictional wrestler","text":"ビクトリー武蔵"},{"id":"f-Yoshihiro Koyama","name":"Yoshihiro Koyama","group":"Fictional wrestler","text":"甲山良広"},{"id":"f-Akira Saeba","name":"Akira Saeba","group":"Fictional wrestler","text":"冴刃明"},{"id":"f-Bret Keisky","name":"Bret Keisky","group":"Fictional wrestler","text":"ブレッド・ケイスキー"},{"id":"f-Butterfly Kono","name":"Butterfly Kono","group":"Fictional wrestler","text":"バタフライ河野"},{"id":"f-Masahiko Akihara","name":"Masahiko Akihara","group":"Fictional wrestler","text":"秋原雅彦"},{"id":"f-Daigo Ikegawa","name":"Daigo Ikegawa","group":"Fictional wrestler","text":"池河ダイゴ"},{"id":"f-Katsuji Usuya","name":"Katsuji Usuya","group":"Fictional wrestler","text":"臼谷勝次"},{"id":"f-Kazuki Yamamoto","name":"Kazuki Yamamoto","group":"Fictional wrestler","text":"山本和輝"},{"id":"f-Mado","name":"Mado","group":"Fictional wrestler","text":"魔道"},{"id":"f-Orion Beat","name":"Orion Beat","group":"Fictional wrestler","text":"オライオン・ビート"},{"id":"f-Mister Kim","name":"Mister Kim","group":"Fictional wrestler","text":"ミスター金"},{"id":"f-Mister K","name":"Mister K","group":"Fictional wrestler","text":"ミスターＫ"},{"id":"f-Kido","name":"Kido","group":"Fictional wrestler","text":"鬼道"},{"id":"f-Peder Morgan","name":"Peder Morgan","group":"Fictional wrestler","text":"ピーダー・モーガン"},{"id":"f-Hell's Stacy","name":"Hell's Stacy","group":"Fictional wrestler","text":"ヘルズ・ステイシー"},{"id":"f-Smasher G. Gigas","name":"Smasher G. Gigas","group":"Fictional wrestler","text":"スマッシャー・Ｇ・ギガス"},{"id":"f-Rairyu","name":"Rairyu","group":"Fictional wrestler","text":"雷龍"},{"id":"f-Olympia Akutsu","name":"Olympia Akutsu","group":"Fictional wrestler","text":"オリンピア・阿久津"},{"id":"f-Hitman Gen","name":"Hitman Gen","group":"Fictional wrestler","text":"ヒットマン源"},{"id":"f-Adon Haruki","name":"Adon Haruki","group":"Fictional wrestler","text":"アドン春樹"},{"id":"f-Abdullah the Danger","name":"Abdullah the Danger","group":"Fictional wrestler","text":"アブドラ・ザ・デンジャー"},{"id":"f-Death Hazard","name":"Death Hazard","group":"Fictional wrestler","text":"デスハザード"},{"id":"f-The Sekitori","name":"The Sekitori","group":"Fictional wrestler","text":"ザ・セキトリ"},{"id":"f-Big Policeman","name":"Big Policeman","group":"Fictional wrestler","text":"ビッグ・ポリスマン"},{"id":"f-Mask de Panther","name":"Mask de Panther","group":"Fictional wrestler","text":"マスク・ド・パンサー"},{"id":"f-Black Panther","name":"Black Panther","group":"Fictional wrestler","text":"ブラック・パンサー"},{"id":"f-Mask de Panther I","name":"Mask de Panther I","group":"Fictional wrestler","text":"初代マスク・ド・パンサー"},{"id":"f-Doran Otowa","name":"Doran Otowa","group":"Fictional wrestler","text":"怒乱音羽"},{"id":"f-Gart Van","name":"Gart Van","group":"Fictional wrestler","text":"ガート・バン"},{"id":"f-Dynamic Kid","name":"Dynamic Kid","group":"Fictional wrestler","text":"ダイナミック・キッド"},{"id":"f-The Genocide","name":"The Genocide","group":"Fictional wrestler","text":"ザ・ジェノサイド"},{"id":"f-Win Harlock","name":"Win Harlock","group":"Fictional wrestler","text":"ウィン・ハーロック"},{"id":"f-Pentagon","name":"Pentagon","group":"Fictional wrestler","text":"ペンタゴン"},{"id":"f-The Phantom","name":"The Phantom","group":"Fictional wrestler","text":"ザ・ファントム"},{"id":"f-Mexican A","name":"Mexican A","group":"Fictional wrestler","text":"メキシカンＡ"},{"id":"f-Mexican B","name":"Mexican B","group":"Fictional wrestler","text":"メキシカンＢ"},{"id":"f-Ken Shundo","name":"Ken Shundo","group":"Fictional wrestler","text":"俊藤剣"},{"id":"f-Ichiro","name":"Ichiro","group":"Fictional wrestler","text":"イチロー"},{"id":"f-Yochiro","name":"Yochiro","group":"Fictional wrestler","text":"ヨチロー"},{"id":"f-The Mysterious Budo","name":"The Mysterious Budo","group":"Fictional wrestler","text":"ザ・ミステリアス・武道"},{"id":"f-Chorikimaru","name":"Chorikimaru","group":"Fictional wrestler","text":"超力丸"},{"id":"f-Storm Keisuke","name":"Storm Keisuke","group":"Fictional wrestler","text":"ストーム慶介"},{"id":"f-Makoto Higaki","name":"Makoto Higaki","group":"Fictional wrestler","text":"桧垣誠"},{"id":"f-Katsushi Okita","name":"Katsushi Okita","group":"Fictional wrestler","text":"沖田勝志"},{"id":"f-Kanata Tengai","name":"Kanata Tengai","group":"Fictional wrestler","text":"天涯かなた"},{"id":"f-Rush Himura","name":"Rush Himura","group":"Fictional wrestler","text":"ラッシュ桧村"},{"id":"f-Atsuo Momotani","name":"Atsuo Momotani","group":"Fictional wrestler","text":"桃谷敦夫"},{"id":"f-Fighter Yamato","name":"Fighter Yamato","group":"Fictional wrestler","text":"ファイター大和"},{"id":"f-The Eliminator","name":"The Eliminator","group":"Fictional wrestler","text":"ザ・イリミネーター"},{"id":"f-Texas Harry Jr.","name":"Texas Harry Jr.","group":"Fictional wrestler","text":"テキサス・ハリーＪｒ"},{"id":"f-Night Blaster","name":"Night Blaster","group":"Fictional wrestler","text":"ナイト・ブラスター"},{"id":"f-Iron Blaster","name":"Iron Blaster","group":"Fictional wrestler","text":"アイアン・ブラスター"},{"id":"f-Crusher Hatamoto","name":"Crusher Hatamoto","group":"Fictional wrestler","text":"クラッシャー旗本"},{"id":"f-Toshiaki Igarashi","name":"Toshiaki Igarashi","group":"Fictional wrestler","text":"五十嵐利明"},{"id":"f-Will James","name":"Will James","group":"Fictional wrestler","text":"ウィル・ジェイムス"},{"id":"f-Shingo","name":"Shingo","group":"Fictional wrestler","text":"真吾"},{"id":"m0","name":"Giant Baba","group":"Move set","text":"start"},{"id":"m1","name":"Misawa","group":"Move set","text":"start"},{"id":"m2","name":"Kawada","group":"Move set","text":"start"},{"id":"m3","name":"Taue","group":"Move set","text":"start"},{"id":"m4","name":"Kobashi","group":"Move set","text":"start"},{"id":"m5","name":"Akiyama","group":"Move set","text":"start"},{"id":"m6","name":"Hase","group":"Move set","text":"start"},{"id":"m7","name":"Omori","group":"Move set","text":"start"},{"id":"m8","name":"Honda","group":"Move set","text":"start"},{"id":"m9","name":"Izumida","group":"Move set","text":"start"},{"id":"m10","name":"Inoue","group":"Move set","text":"start"},{"id":"m11","name":"Fuchi","group":"Move set","text":"start"},{"id":"m12","name":"Kikuchi","group":"Move set","text":"start"},{"id":"m13","name":"Ogawa","group":"Move set","text":"start"},{"id":"m14","name":"Asako","group":"Move set","text":"start"},{"id":"m15","name":"Shiga","group":"Move set","text":"start"},{"id":"m16","name":"Kanemaru","group":"Move set","text":"start"},{"id":"m17","name":"Hansen","group":"Move set","text":"start"},{"id":"m18","name":"Albright","group":"Move set","text":"start"},{"id":"m19","name":"Johnny Ace","group":"Move set","text":"start"},{"id":"m20","name":"Johnny Smith","group":"Move set","text":"start"},{"id":"m21","name":"Kimala","group":"Move set","text":"start"},{"id":"m22","name":"Mossman","group":"Move set","text":"start"},{"id":"m23","name":"Jumbo Tsuruta","group":"Move set","text":"either"},{"id":"m24","name":"Vader","group":"Move set","text":"start"},{"id":"m25","name":"Steel James","group":"Move set","text":"succession"},{"id":"m26","name":"Ranmaru","group":"Move set","text":"succession"},{"id":"m27","name":"Jinsui Kanzaki","group":"Move set","text":"succession"},{"id":"m28","name":"Big the G Bull","group":"Move set","text":"succession"},{"id":"m29","name":"Giant Roshmoff","group":"Move set","text":"succession"},{"id":"m30","name":"Yoshihiro Koyama","group":"Move set","text":"succession"},{"id":"m31","name":"Masahiko Akihara","group":"Move set","text":"succession"},{"id":"m32","name":"Mado","group":"Move set","text":"succession"},{"id":"m33","name":"Kido","group":"Move set","text":"ascent"},{"id":"m34","name":"Rairyu","group":"Move set","text":"succession"},{"id":"m35","name":"Abdullah the Danger","group":"Move set","text":"ascent"},{"id":"m36","name":"Mask de Panther","group":"Move set","text":"ascent"},{"id":"m37","name":"Gart Van","group":"Move set","text":"succession"},{"id":"m38","name":"Pentagon","group":"Move set","text":"ascent"},{"id":"m39","name":"Ken Shundo","group":"Move set","text":"ascent"},{"id":"m40","name":"Chorikimaru","group":"Move set","text":"ascent"},{"id":"m41","name":"Kanata Tengai","group":"Move set","text":"ascent"},{"id":"m42","name":"The Eliminator","group":"Move set","text":"succession"},{"id":"m43","name":"Crusher Hatamoto","group":"Move set","text":"ascent"},{"id":"m44","name":"Flash Burton","group":"Move set","text":"succession"},{"id":"m45","name":"Tattoo","group":"Move set","text":"succession"},{"id":"m46","name":"Hayate","group":"Move set","text":"succession"},{"id":"m47","name":"The Underground","group":"Move set","text":"succession"},{"id":"m48","name":"Daigo Ikegawa","group":"Move set","text":"succession"},{"id":"m49","name":"Death Hazard","group":"Move set","text":"ascent"},{"id":"m50","name":"Mask de Panther I","group":"Move set","text":"ascent"},{"id":"m51","name":"Doran Otowa","group":"Move set","text":"ascent"},{"id":"m52","name":"The Genocide","group":"Move set","text":"succession"},{"id":"m53","name":"Kerry Bogey","group":"Move set","text":"succession"},{"id":"m54","name":"Fighter Yamato","group":"Move set","text":"ascent"},{"id":"m55","name":"Texas Kerry","group":"Move set","text":"succession"},{"id":"m56","name":"Dynamic Kid","group":"Move set","text":"succession"},{"id":"m57","name":"Olympia Akutsu","group":"Move set","text":"succession"},{"id":"l0","name":"Giant Baba","group":"Logic","text":"Giant Baba's special logic."},{"id":"l1","name":"Royal Road Misawa","group":"Logic","text":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic."},{"id":"l2","name":"Royal Road Kawada","group":"Logic","text":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic."},{"id":"l3","name":"Royal Road Veteran","group":"Logic","text":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic."},{"id":"l4","name":"Royal Road Jinsui","group":"Logic","text":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic."},{"id":"l5","name":"Fiery Kobashi","group":"Logic","text":"Never lets up the attack until the end. Straight-ahead logic."},{"id":"l6","name":"Fiery","group":"Logic","text":"Never lets up the attack until the end. Straight-ahead logic."},{"id":"l7","name":"My-Pace Taue","group":"Logic","text":"Keeps a steady attack rhythm all match. Balanced logic."},{"id":"l8","name":"My-Pace Akiyama","group":"Logic","text":"Keeps a steady attack rhythm all match. Balanced logic."},{"id":"l9","name":"My-Pace Hase","group":"Logic","text":"Keeps a steady attack rhythm all match. Balanced logic."},{"id":"l10","name":"My-Pace","group":"Logic","text":"Keeps a steady attack rhythm all match. Balanced logic."},{"id":"l11","name":"My-Pace Luchador","group":"Logic","text":"Keeps a steady attack rhythm all match. Balanced logic."},{"id":"l12","name":"My-Pace Foreigner","group":"Logic","text":"Keeps a steady attack rhythm all match. Balanced logic."},{"id":"l13","name":"My-Pace Rairyu","group":"Logic","text":"Keeps a steady attack rhythm all match. Balanced logic."},{"id":"l14","name":"High Rush","group":"Logic","text":"Attacks all-out from the opening bell. High-spurt logic."},{"id":"l15","name":"Rush","group":"Logic","text":"Attacks all-out from the opening bell. High-spurt logic."},{"id":"l16","name":"Unorthodox","group":"Logic","text":"Unpredictable, with an element of gamble. Special logic."},{"id":"l17","name":"Striker","group":"Logic","text":"Controls the match rhythm with strikes. Strike-heavy logic."},{"id":"l18","name":"Royal Road Showa","group":"Logic","text":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic."}],"roster":[{"id":0,"name":"Giant Baba","jp":"ジャイアント馬場","short":"Giant Baba","crowns":["succession_code2"],"edit":"start"},{"id":1,"name":"Mitsuharu Misawa","jp":"三沢光晴","short":"Misawa","crowns":["succession"],"edit":"start"},{"id":2,"name":"Toshiaki Kawada","jp":"川田利明","short":"Kawada","crowns":["succession"],"edit":"start"},{"id":3,"name":"Akira Taue","jp":"田上明","short":"Taue","crowns":["succession"],"edit":"start"},{"id":4,"name":"Kenta Kobashi","jp":"小橋健太","short":"Kobashi","crowns":["succession"],"edit":"start"},{"id":5,"name":"Jun Akiyama","jp":"秋山準","short":"Akiyama","crowns":["succession"],"edit":"start"},{"id":6,"name":"Hiroshi Hase","jp":"馳浩","short":"Hase","crowns":["succession"],"edit":"start"},{"id":7,"name":"Takao Omori","jp":"大森隆男","short":"Omori","crowns":["ascent"],"edit":"start"},{"id":8,"name":"Tamon Honda","jp":"本田多聞","short":"Honda","crowns":["ascent"],"edit":"start"},{"id":9,"name":"Jun Izumida","jp":"泉田純","short":"Izumida","crowns":["ascent"],"edit":"start"},{"id":10,"name":"Masao Inoue","jp":"井上雅央","short":"Inoue","crowns":["ascent"],"edit":"start"},{"id":11,"name":"Masanobu Fuchi","jp":"渕正信","short":"Fuchi","crowns":["succession_code1"],"edit":"start"},{"id":12,"name":"Tsuyoshi Kikuchi","jp":"菊地毅","short":"Kikuchi","crowns":["ascent_code2"],"edit":"start"},{"id":13,"name":"Yoshinari Ogawa","jp":"小川良成","short":"Ogawa","crowns":["succession_code1"],"edit":"start"},{"id":14,"name":"Satoru Asako","jp":"浅子覚","short":"Asako","crowns":["ascent_code2"],"edit":"start"},{"id":15,"name":"Kentaro Shiga","jp":"志賀賢太郎","short":"Shiga","crowns":["ascent"],"edit":"start"},{"id":16,"name":"Yoshinobu Kanemaru","jp":"金丸義信","short":"Kanemaru","crowns":["ascent_code2"],"edit":"start"},{"id":17,"name":"Stan Hansen","jp":"スタン・ハンセン","short":"Hansen","crowns":["succession"],"edit":"start"},{"id":18,"name":"Gary Albright","jp":"ゲーリー・オブライト","short":"Albright","crowns":["ascent"],"edit":"start"},{"id":19,"name":"Johnny Ace","jp":"ジョニー・エース","short":"Johnny Ace","crowns":["ascent"],"edit":"start"},{"id":20,"name":"Johnny Smith","jp":"ジョニー・スミス","short":"Johnny Smith","crowns":["ascent"],"edit":"start"},{"id":21,"name":"Giant Kimala","jp":"ジャイアント・キマラ","short":"Kimala","crowns":["ascent"],"edit":"start"},{"id":22,"name":"Maunakea Mossman","jp":"マウナケア・モスマン","short":"Mossman","crowns":["ascent"],"edit":"start"},{"id":23,"name":"Jumbo Tsuruta","jp":"ジャンボ鶴田","short":"Jumbo Tsuruta","crowns":["succession_code2"],"edit":"either"},{"id":24,"name":"Vader","jp":"ベイダー","short":"Vader","crowns":["succession"],"edit":"start"}],"fictional":[{"model":25,"names":[{"name":"Steel James","jp":"スティール・ジェイムス"},{"name":"Flash Burton","jp":"フラッシュ・バートン"},{"name":"Axe Dugan","jp":"アックス・ドゥガン"},{"name":"Dad Davis","jp":"ダッド・デイビス"}],"edit":"succession"},{"model":26,"names":[{"name":"Ranmaru","jp":"ランマル"},{"name":"Dark Ranmaru","jp":"ダーク・ランマル"},{"name":"Tattoo","jp":"タトゥー"},{"name":"HAYATE","jp":"ＨＡＹＡＴＥ"}],"edit":"succession"},{"model":27,"names":[{"name":"Jinsui Kanzaki","jp":"神崎仁水"},{"name":"Fumihito Kihara","jp":"木原文人"},{"name":"Toshi Goto","jp":"トシ護東"},{"name":"General Bordeaux","jp":"ジェネラル・ボルドー"}],"edit":"succession"},{"model":28,"names":[{"name":"Big the Great Bull","jp":"ビック・ザ・グレート・ブル"},{"name":"Texas Kerry","jp":"テキサス・ケリー"},{"name":"The Underground","jp":"ジ・アンダーグラウンド"},{"name":"Kerry Bogey","jp":"ケリー・ボギー"}],"edit":"succession"},{"model":29,"names":[{"name":"Giant the Roshmoff","jp":"ジャイアント・ザ・ロシュモフ"},{"name":"Big Obayashi","jp":"ビッグ大林"},{"name":"Great Giant","jp":"グレート・ジャイアント"},{"name":"Victory Musashi","jp":"ビクトリー武蔵"}],"edit":"succession"},{"model":30,"names":[{"name":"Yoshihiro Koyama","jp":"甲山良広"},{"name":"Akira Saeba","jp":"冴刃明"},{"name":"Bret Keisky","jp":"ブレッド・ケイスキー"},{"name":"Butterfly Kono","jp":"バタフライ河野"}],"edit":"succession"},{"model":31,"names":[{"name":"Masahiko Akihara","jp":"秋原雅彦"},{"name":"Daigo Ikegawa","jp":"池河ダイゴ"},{"name":"Katsuji Usuya","jp":"臼谷勝次"},{"name":"Kazuki Yamamoto","jp":"山本和輝"}],"edit":"succession"},{"model":32,"names":[{"name":"Mado","jp":"魔道"},{"name":"Orion Beat","jp":"オライオン・ビート"},{"name":"Mister Kim","jp":"ミスター金"},{"name":"Mister K","jp":"ミスターＫ"}],"edit":"succession"},{"model":33,"names":[{"name":"Kido","jp":"鬼道"},{"name":"Peder Morgan","jp":"ピーダー・モーガン"},{"name":"Hell's Stacy","jp":"ヘルズ・ステイシー"},{"name":"Smasher G. Gigas","jp":"スマッシャー・Ｇ・ギガス"}],"edit":"ascent"},{"model":34,"names":[{"name":"Rairyu","jp":"雷龍"},{"name":"Olympia Akutsu","jp":"オリンピア・阿久津"},{"name":"Hitman Gen","jp":"ヒットマン源"},{"name":"Adon Haruki","jp":"アドン春樹"}],"edit":"succession"},{"model":35,"names":[{"name":"Abdullah the Danger","jp":"アブドラ・ザ・デンジャー"},{"name":"Death Hazard","jp":"デスハザード"},{"name":"The Sekitori","jp":"ザ・セキトリ"},{"name":"Big Policeman","jp":"ビッグ・ポリスマン"}],"edit":"ascent"},{"model":36,"names":[{"name":"Mask de Panther","jp":"マスク・ド・パンサー"},{"name":"Black Panther","jp":"ブラック・パンサー"},{"name":"Mask de Panther I","jp":"初代マスク・ド・パンサー"},{"name":"Doran Otowa","jp":"怒乱音羽"}],"edit":"ascent"},{"model":37,"names":[{"name":"Gart Van","jp":"ガート・バン"},{"name":"Dynamic Kid","jp":"ダイナミック・キッド"},{"name":"The Genocide","jp":"ザ・ジェノサイド"},{"name":"Win Harlock","jp":"ウィン・ハーロック"}],"edit":"succession"},{"model":38,"names":[{"name":"Pentagon","jp":"ペンタゴン"},{"name":"The Phantom","jp":"ザ・ファントム"},{"name":"Mexican A","jp":"メキシカンＡ"},{"name":"Mexican B","jp":"メキシカンＢ"}],"edit":"ascent"},{"model":39,"names":[{"name":"Ken Shundo","jp":"俊藤剣"},{"name":"Ichiro","jp":"イチロー"},{"name":"Yochiro","jp":"ヨチロー"},{"name":"The Mysterious Budo","jp":"ザ・ミステリアス・武道"}],"edit":"ascent"},{"model":40,"names":[{"name":"Chorikimaru","jp":"超力丸"},{"name":"Storm Keisuke","jp":"ストーム慶介"},{"name":"Makoto Higaki","jp":"桧垣誠"},{"name":"Katsushi Okita","jp":"沖田勝志"}],"edit":"ascent"},{"model":41,"names":[{"name":"Kanata Tengai","jp":"天涯かなた"},{"name":"Rush Himura","jp":"ラッシュ桧村"},{"name":"Atsuo Momotani","jp":"桃谷敦夫"},{"name":"Fighter Yamato","jp":"ファイター大和"}],"edit":"ascent"},{"model":42,"names":[{"name":"The Eliminator","jp":"ザ・イリミネーター"},{"name":"Texas Harry Jr.","jp":"テキサス・ハリーＪｒ"},{"name":"Night Blaster","jp":"ナイト・ブラスター"},{"name":"Iron Blaster","jp":"アイアン・ブラスター"}],"edit":"succession"},{"model":43,"names":[{"name":"Crusher Hatamoto","jp":"クラッシャー旗本"},{"name":"Toshiaki Igarashi","jp":"五十嵐利明"},{"name":"Will James","jp":"ウィル・ジェイムス"},{"name":"Shingo","jp":"真吾"}],"edit":"ascent"}],"hidden":[{"model":44,"name":"Inoue Track Suit","jp":"井上ジャージ姿"},{"model":45,"name":"Asako Track Suit","jp":"浅子ジャージ姿"},{"model":46,"name":"Shiga Track Suit","jp":"志賀ジャージ姿"},{"model":47,"name":"Kanemaru Track Suit","jp":"金丸ジャージ姿"},{"model":48,"name":"Takeshi Morishima","jp":"森嶋猛"},{"model":49,"name":"Mossman Track Suit","jp":"モスマンジャージ"},{"model":50,"name":"Kyohei Wada","jp":"和田恭平"}],"moves":[{"id":0,"name":"Giant Baba","unlock":"start"},{"id":1,"name":"Misawa","unlock":"start"},{"id":2,"name":"Kawada","unlock":"start"},{"id":3,"name":"Taue","unlock":"start"},{"id":4,"name":"Kobashi","unlock":"start"},{"id":5,"name":"Akiyama","unlock":"start"},{"id":6,"name":"Hase","unlock":"start"},{"id":7,"name":"Omori","unlock":"start"},{"id":8,"name":"Honda","unlock":"start"},{"id":9,"name":"Izumida","unlock":"start"},{"id":10,"name":"Inoue","unlock":"start"},{"id":11,"name":"Fuchi","unlock":"start"},{"id":12,"name":"Kikuchi","unlock":"start"},{"id":13,"name":"Ogawa","unlock":"start"},{"id":14,"name":"Asako","unlock":"start"},{"id":15,"name":"Shiga","unlock":"start"},{"id":16,"name":"Kanemaru","unlock":"start"},{"id":17,"name":"Hansen","unlock":"start"},{"id":18,"name":"Albright","unlock":"start"},{"id":19,"name":"Johnny Ace","unlock":"start"},{"id":20,"name":"Johnny Smith","unlock":"start"},{"id":21,"name":"Kimala","unlock":"start"},{"id":22,"name":"Mossman","unlock":"start"},{"id":23,"name":"Jumbo Tsuruta","unlock":"either"},{"id":24,"name":"Vader","unlock":"start"},{"id":25,"name":"Steel James","unlock":"succession"},{"id":26,"name":"Ranmaru","unlock":"succession"},{"id":27,"name":"Jinsui Kanzaki","unlock":"succession"},{"id":28,"name":"Big the G Bull","unlock":"succession"},{"id":29,"name":"Giant Roshmoff","unlock":"succession"},{"id":30,"name":"Yoshihiro Koyama","unlock":"succession"},{"id":31,"name":"Masahiko Akihara","unlock":"succession"},{"id":32,"name":"Mado","unlock":"succession"},{"id":33,"name":"Kido","unlock":"ascent"},{"id":34,"name":"Rairyu","unlock":"succession"},{"id":35,"name":"Abdullah the Danger","unlock":"ascent"},{"id":36,"name":"Mask de Panther","unlock":"ascent"},{"id":37,"name":"Gart Van","unlock":"succession"},{"id":38,"name":"Pentagon","unlock":"ascent"},{"id":39,"name":"Ken Shundo","unlock":"ascent"},{"id":40,"name":"Chorikimaru","unlock":"ascent"},{"id":41,"name":"Kanata Tengai","unlock":"ascent"},{"id":42,"name":"The Eliminator","unlock":"succession"},{"id":43,"name":"Crusher Hatamoto","unlock":"ascent"},{"id":44,"name":"Flash Burton","unlock":"succession"},{"id":45,"name":"Tattoo","unlock":"succession"},{"id":46,"name":"Hayate","unlock":"succession"},{"id":47,"name":"The Underground","unlock":"succession"},{"id":48,"name":"Daigo Ikegawa","unlock":"succession"},{"id":49,"name":"Death Hazard","unlock":"ascent"},{"id":50,"name":"Mask de Panther I","unlock":"ascent"},{"id":51,"name":"Doran Otowa","unlock":"ascent"},{"id":52,"name":"The Genocide","unlock":"succession"},{"id":53,"name":"Kerry Bogey","unlock":"succession"},{"id":54,"name":"Fighter Yamato","unlock":"ascent"},{"id":55,"name":"Texas Kerry","unlock":"succession"},{"id":56,"name":"Dynamic Kid","unlock":"succession"},{"id":57,"name":"Olympia Akutsu","unlock":"succession"},{"id":58,"name":"Akira Saeba","unlock":"never"},{"id":59,"name":"Olympia Akutsu","unlock":"never"}],"logic":[{"id":0,"name":"Giant Baba","desc":"Giant Baba's special logic.","unlock":"start"},{"id":1,"name":"Royal Road Misawa","desc":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic.","unlock":"start"},{"id":2,"name":"Royal Road Kawada","desc":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic.","unlock":"start"},{"id":3,"name":"Royal Road Veteran","desc":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic.","unlock":"start"},{"id":4,"name":"Royal Road Jinsui","desc":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic.","unlock":"succession"},{"id":5,"name":"Fiery Kobashi","desc":"Never lets up the attack until the end. Straight-ahead logic.","unlock":"start"},{"id":6,"name":"Fiery","desc":"Never lets up the attack until the end. Straight-ahead logic.","unlock":"start"},{"id":7,"name":"My-Pace Taue","desc":"Keeps a steady attack rhythm all match. Balanced logic.","unlock":"start"},{"id":8,"name":"My-Pace Akiyama","desc":"Keeps a steady attack rhythm all match. Balanced logic.","unlock":"start"},{"id":9,"name":"My-Pace Hase","desc":"Keeps a steady attack rhythm all match. Balanced logic.","unlock":"start"},{"id":10,"name":"My-Pace","desc":"Keeps a steady attack rhythm all match. Balanced logic.","unlock":"start"},{"id":11,"name":"My-Pace Luchador","desc":"Keeps a steady attack rhythm all match. Balanced logic.","unlock":"start"},{"id":12,"name":"My-Pace Foreigner","desc":"Keeps a steady attack rhythm all match. Balanced logic.","unlock":"start"},{"id":13,"name":"My-Pace Rairyu","desc":"Keeps a steady attack rhythm all match. Balanced logic.","unlock":"succession"},{"id":14,"name":"High Rush","desc":"Attacks all-out from the opening bell. High-spurt logic.","unlock":"start"},{"id":15,"name":"Rush","desc":"Attacks all-out from the opening bell. High-spurt logic.","unlock":"start"},{"id":16,"name":"Unorthodox","desc":"Unpredictable, with an element of gamble. Special logic.","unlock":"start"},{"id":17,"name":"Striker","desc":"Controls the match rhythm with strikes. Strike-heavy logic.","unlock":"start"},{"id":18,"name":"Royal Road Showa","desc":"Takes the opponent's best, then wins for sure in the end. Classic Royal Road logic.","unlock":"start"},{"id":19,"name":"","desc":"","unlock":"never"}],"entrances":{"start":24,"either":1,"succession":9,"ascent":3,"never":3},"crowns":{"succession":[1,2,3,4,5,6,17,24],"succession_code1":[1,2,3,4,5,6,11,17,24,13],"succession_code2":[1,2,3,4,5,6,23,11,17,24,13,0],"ascent":[7,8,9,10,15,18,19,20,21,22],"ascent_code2":[7,8,9,10,15,16,12,18,19,20,21,22,14]},"finishes":[{"jp":"片エビ固め","name":"Leg Hook"},{"jp":"体固め","name":"Pin"},{"jp":"エビ固め","name":"Cradle"},{"jp":"ストレッチプラム","name":"Stretch Plum"},{"jp":"背骨折り","name":"Bkbrkr"},{"jp":"脇固め","name":"Arm"},{"jp":"首固め","name":"Neck"},{"jp":"網打ち式原爆固め","name":"Fisherman Sup."},{"jp":"北斗原爆固め","name":"N. Lights"},{"jp":"原爆落とし固め","name":"Atomic Drop"},{"jp":"逆さ押さえ込み","name":"Inv. Cradle"},{"jp":"原爆固め","name":"German"},{"jp":"猛虎原爆固め","name":"Tiger Sup."},{"jp":"飛龍原爆固め","name":"Dragon"},{"jp":"岩石落とし固め","name":"Backdrop"},{"jp":"85年式猛虎原爆固め","name":"Tiger Suplex '85"},{"jp":"腕ひしぎ逆十字固め","name":"Cross Armbar"},{"jp":"膝十字固め","name":"Kneebar"},{"jp":"逆エビ固め","name":"Crab"},{"jp":"逆片エビ固め","name":"Half Crab"},{"jp":"足4の字固め","name":"Figure 4"},{"jp":"S・T・F","name":"STF"},{"jp":"ギブアップ","name":"Give Up"},{"jp":"無　間","name":"No Cont."},{"jp":"羽根折り式原爆固め","name":"Chickenwing Suplex"},{"jp":"引き分け","name":"Draw"},{"jp":"リングアウト勝ち","name":"Win by Count-Out"}],"tours":[{"jp":"サマーアクションシリーズ","name":"Summer Action Series"},{"jp":"サマーアクションシリーズⅡ","name":"Summer Action Series II"},{"jp":"ファン感謝デー","name":"Fan Appreciation Day"},{"jp":"ジャイアントシリーズ","name":"Giant Series"},{"jp":"世界最強タッグ決定リーグ戦","name":"Real World Tag League"},{"jp":"新春ジャイアントシリーズ","name":"New Year Giant Series"},{"jp":"エキサイトシリーズ","name":"Excite Series"},{"jp":"チャンピオン・カーニバル","name":"Champion Carnival"},{"jp":"スーパーパワーシリーズ","name":"Super Power Series"}],"venues":[{"jp":"北海道","name":"Hokkaido"},{"jp":"青森","name":"Aomori"},{"jp":"秋田","name":"Akita"},{"jp":"宮城","name":"Miyagi"},{"jp":"福島","name":"Fukushima"},{"jp":"新潟","name":"Niigata"},{"jp":"富山","name":"Toyama"},{"jp":"石川","name":"Ishikawa"},{"jp":"山梨","name":"Yamanashi"},{"jp":"長野","name":"Nagano"},{"jp":"埼玉","name":"Saitama"},{"jp":"茨城","name":"Ibaraki"},{"jp":"東京","name":"Tokyo"},{"jp":"神奈川","name":"Kanagawa"},{"jp":"千葉","name":"Chiba"},{"jp":"栃木","name":"Tochigi"},{"jp":"静岡","name":"Shizuoka"},{"jp":"愛知","name":"Aichi"},{"jp":"岐阜","name":"Gifu"},{"jp":"大阪","name":"Osaka"},{"jp":"京都","name":"Kyoto"},{"jp":"兵庫","name":"Hyogo"},{"jp":"広島","name":"Hiroshima"},{"jp":"岡山","name":"Okayama"},{"jp":"山口","name":"Yamaguchi"},{"jp":"鳥取","name":"Tottori"},{"jp":"高知","name":"Kochi"},{"jp":"愛媛","name":"Ehime"},{"jp":"福岡","name":"Fukuoka"},{"jp":"熊本","name":"Kumamoto"},{"jp":"大分","name":"Oita"},{"jp":"宮崎","name":"Miyazaki"},{"jp":"鹿児島","name":"Kagoshima"},{"jp":"沖縄","name":"Okinawa"},{"jp":"武道館","name":"Budokan"},{"jp":"ドーム","name":"Dome"}]}</script>
+<script>
+/* Generated tables: fills the roster, Five Crowns lists, Edit Wrestler tables, finishes, tours and
+   the Secrets lists from the data block (written by tools/guidedata.py from the game's data). */
+(function () {
+  let D = null; try { D = JSON.parse(document.getElementById('page-data').textContent); } catch (e) {}
+  if (!D || !D.roster) return;
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const $ = id => document.getElementById(id);
+  const UNLOCK = { start: 'From the start', succession: 'Clear Succession', ascent: 'Clear Ascent',
+                   either: 'Clear either chapter', both: 'Clear both chapters', never: 'Never selectable' };
+  const tag = u => `<span class="tag ${u}">${UNLOCK[u] || u}</span>`;
+  const W = {}; D.roster.forEach(w => { W[w.id] = w; });
+  const names = ids => ids.map(i => W[i].name);
+  const list = (ids, el) => { if (el) el.innerHTML = ids.map(i => `<li>${esc(W[i].name)}</li>`).join(''); };
+  const and = a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
+  const C = D.crowns;
+
+  // Roster, in two tables side by side
+  const CROWNS = { succession: 'Succession', ascent: 'Ascent', succession_code1: 'Succession (code)',
+                   succession_code2: 'Succession (code)', ascent_code2: 'Ascent (code)' };
+  const half = Math.ceil(D.roster.length / 2);
+  $('rosterTables').innerHTML = [D.roster.slice(0, half), D.roster.slice(half)].map(part => `<div class="tablewrap"><table class="datatable"><thead><tr><th>#</th><th>Wrestler</th><th>Japanese</th><th>Five Crowns</th></tr></thead><tbody>${
+    part.map(w => `<tr id="entry-w${w.id}"><td>${w.id + 1}</td><td class="nm">${esc(w.name)}</td><td lang="ja">${esc(w.jp)}</td><td>${
+      w.crowns.map(c => `<span class="tag ${c.includes('code') ? 'code' : 'start'}">${CROWNS[c]}</span>`).join(' ')}</td></tr>`).join('')
+  }</tbody></table></div>`).join('');
+
+  // Five Crowns
+  list(C.succession, $('crownsSucc')); list(C.ascent, $('crownsAsc'));
+  const extra = (big, small) => big.filter(i => !small.includes(i));
+  $('code1Succ').textContent = '+ ' + and(names(extra(C.succession_code1, C.succession)));
+  $('code2Succ').textContent = '+ ' + and(names(extra(C.succession_code2, C.succession)));
+  $('code2Asc').textContent = '+ ' + and(names(extra(C.ascent_code2, C.ascent)));
+  $('tourList').innerHTML = D.tours.map(t => `<li>${esc(t.name)}<span class="jp" lang="ja">${esc(t.jp)}</span></li>`).join('');
+  $('venueList').innerHTML = D.venues.map(t => `<li>${esc(t.name)}<span class="jp" lang="ja">${esc(t.jp)}</span></li>`).join('');
+
+  // Finishes, three pairs to a row
+  const F = D.finishes, rows = [];
+  for (let i = 0; i < F.length; i += 3) rows.push('<tr>' + [0, 1, 2].map(k => F[i + k] ? `<td>${esc(F[i + k].name)}</td><td lang="ja">${esc(F[i + k].jp)}</td>` : '<td></td><td></td>').join('') + '</tr>');
+  $('finishRows').innerHTML = rows.join('');
+
+  // Body types and move sets, grouped by how they open (a body and its move set always open together)
+  const hasBody = id => id < 44;
+  const groups = [['start', 'From the start'], ['succession', 'Clear Succession'], ['ascent', 'Clear Ascent'], ['either', 'Clear either chapter']];
+  $('typeCols').innerHTML = groups.map(([u, label]) => {
+    const ms = D.moves.filter(m => m.unlock === u);
+    return `<div class="ucol ${u}"><h4>${label} <span class="count">${ms.length}</span></h4><ol>${
+      ms.map(m => `<li id="entry-m${m.id}" value="${m.id + 1}">${esc(m.name)}${hasBody(m.id) ? '' : ' <span class="ms">move set</span>'}</li>`).join('')}</ol></div>`;
+  }).join('');
+
+  // Logic
+  // Logic, one row per way of fighting (several logic types share a description)
+  const byDesc = new Map();
+  D.logic.filter(l => l.name && l.unlock !== 'never').forEach(l => { if (!byDesc.has(l.desc)) byDesc.set(l.desc, []); byDesc.get(l.desc).push(l); });
+  $('logicRows').innerHTML = [...byDesc].map(([desc, ls]) => `<tr><td class="desc">${esc(desc)}</td><td><ul class="namelist">${
+    ls.map(l => `<li id="entry-l${l.id}">${esc(l.name)}${l.unlock === 'start' ? '' : ' ' + tag(l.unlock)}</li>`).join('')}</ul></td></tr>`).join('');
+
+  // Entrances
+  const E = D.entrances, total = Object.values(E).reduce((a, b) => a + b, 0) - (E.never || 0);
+  $('entranceCount').textContent = total; $('entranceStart').textContent = E.start;
+
+  // Fictional wrestlers
+  const bodyName = {}; D.moves.forEach(m => { bodyName[m.id] = m.name; });
+  $('fictRows').innerHTML = D.fictional.map(f => `<tr><td>${f.model + 1}</td>${f.names.map(n => `<td id="entry-f-${esc(n.name.replace(/[^\w-]+/g, '-'))}"><b>${esc(n.name)}</b><span class="jp" lang="ja">${esc(n.jp)}</span></td>`).join('')}</tr>`).join('');
+
+  // Secrets
+  const unl = u => D.moves.filter(m => m.unlock === u && m.id !== 23).map(m => m.name);
+  const logicU = u => D.logic.filter(l => l.unlock === u).map(l => l.name + ' logic');
+  $('succList').textContent = and(unl('succession').concat(logicU('succession'))) + `, with ${E.succession || 0} more entrances`;
+  $('ascList').textContent = and(unl('ascent').concat(logicU('ascent'))) + `, with ${E.ascent || 0} more entrances`;
+  $('neverList').textContent = and(D.moves.filter(m => m.unlock === 'never').map(m => m.name));
+  $('hiddenList').textContent = and(D.hidden.map(h => h.name));
+
+  // Used by the guide search: bring a row into view
+  window.pageShowEntry = function (id) {
+    const r = document.getElementById('entry-' + String(id).replace(/[^\w-]+/g, '-'));
+    if (!r) return;
+    r.scrollIntoView({ block: 'center' });
+    r.classList.remove('hit-flash'); void r.offsetWidth; r.classList.add('hit-flash');
+  };
+})();
+</script>
+<script>
+/* Guide search, section links, screenshot zoom, printing. Nothing to edit here: the search
+   indexes the headings with ids (h2 by its section's id, h3/h4 by their own), the data block's
+   entries, and the text of paragraphs, list items, table cells and captions. */
+(function () {
+  const main = document.querySelector('main');
+  const strip = el => { const c = el.cloneNode(true); c.querySelectorAll('.anchor').forEach(x => x.remove()); return c.textContent.replace(/\s+/g, ' ').trim(); };
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const fold = s => s.toLowerCase().replace(/[’']/g, "'");
+  function openTo(el) { for (let d = el.closest('details'); d; d = d.parentElement.closest('details')) d.open = true; }
+  function flash(el) { el.classList.remove('hit-flash'); void el.offsetWidth; el.classList.add('hit-flash'); setTimeout(() => el.classList.remove('hit-flash'), 2100); }
+
+  /* Section links: a link icon on every heading copies the address of that section */
+  const ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>';
+  function copyText(t) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t);
+    const ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } finally { ta.remove(); }
+    return Promise.resolve();
+  }
+  const heads = [];
+  main.querySelectorAll('section > h2, h3[id], h4[id]').forEach(h => {
+    const id = h.tagName === 'H2' ? h.parentElement.id : h.id;
+    if (!id) return;
+    const title = strip(h);
+    heads.push({ el: h, id, title });
+    const a = document.createElement('a');
+    a.className = 'anchor'; a.href = '#' + id; a.innerHTML = ICON;
+    a.setAttribute('aria-label', 'Copy link to “' + title + '”');
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      history.replaceState(null, '', '#' + id);
+      copyText(location.href).then(() => { a.classList.add('copied'); clearTimeout(a._t); a._t = setTimeout(() => a.classList.remove('copied'), 1600); }, () => {});
+    });
+    h.appendChild(a);
+  });
+
+  /* Screenshot zoom: click a screenshot to see it in a dialog at the largest whole-number scale that fits */
+  const zoom = document.getElementById('zoom');
+  if (zoom && zoom.showModal) {
+    const zi = document.getElementById('zoomImg'), zc = document.getElementById('zoomCap');
+    main.addEventListener('click', e => {
+      const img = e.target.closest('.shots img, figure.shot img');
+      if (!img || !img.naturalWidth) return;
+      zi.src = img.currentSrc || img.src; zi.alt = img.alt;
+      const cap = img.closest('figure') && img.closest('figure').querySelector('figcaption');
+      zc.textContent = cap ? cap.textContent : img.alt;
+      zoom.showModal();
+      const body = zoom.querySelector('.dlg-body');
+      const k = Math.max(1, Math.floor(Math.min((body.clientWidth - 32) / img.naturalWidth, (body.clientHeight - 32) / img.naturalHeight)));
+      zi.width = img.naturalWidth * k; zi.height = img.naturalHeight * k;
+    });
+    zoom.querySelector('.dlg-close').addEventListener('click', () => zoom.close());
+    zoom.addEventListener('click', e => { if (e.target === zoom) zoom.close(); });
+  }
+
+  /* Guide search: sections, data entries and the text itself */
+  const q = document.getElementById('gq'), box = document.getElementById('gres');
+  if (!q || !box || !box.showPopover) return;
+  let index = null, results = [], active = -1;
+  function sectionOf(el) {
+    const sec = el.closest('main > section'); const h = sec && sec.querySelector('h2');
+    let sub = null;
+    for (const x of heads) { if (x.el.tagName !== 'H2' && sec && sec.contains(x.el) && (x.el.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING)) sub = x.title; }
+    return (h ? strip(h) : '') + (sub ? ' › ' + sub : '');
+  }
+  function build() {
+    index = [];
+    for (const h of heads) index.push({ kind: 'Section', rank: 0, t: h.title, s: h.el.tagName === 'H2' ? '' : sectionOf(h.el), key: fold(h.title), go: () => { openTo(h.el); location.hash = h.id; } });
+    let D = null; try { D = JSON.parse(document.getElementById('page-data').textContent); } catch (e) {}
+    const entries = D && Array.isArray(D.entries) ? D.entries : [];
+    entries.forEach((e, i) => {
+      if (!e || !e.name) return;
+      const id = e.id || i, t = String(e.name);
+      index.push({ kind: 'Entry', rank: 1, t, s: e.group ? String(e.group) : '', text: e.text ? String(e.text) : '', key: fold([t, e.group, e.text].join(' ')), go: () => {
+        if (window.pageShowEntry) pageShowEntry(id); else document.getElementById('reference').scrollIntoView({ block: 'start' });
+      } });
+    });
+    main.querySelectorAll('p, li, td, dd, figcaption').forEach(el => {
+      if (el.closest('#refRows, .table-tools') || el.querySelector('p, li, td, dd')) return;
+      const text = el.textContent.replace(/\s+/g, ' ').trim();
+      if (text.length < 12) return;
+      index.push({ kind: 'Text', rank: 2, t: '', s: '', text, el, key: fold(text), go: () => { openTo(el); el.scrollIntoView({ block: 'center' }); flash(el); } });
+    });
+  }
+  function hl(text, words) {
+    let out = esc(text);
+    if (words.length > 1 && fold(text).includes(words.join(' '))) words = [words.join(' ')];
+    for (const w of words) out = out.replace(new RegExp('(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/'/g, "['’]") + ')', 'gi'), '<mark>$1</mark>');
+    return out;
+  }
+  function snippet(text, w) {
+    const i = Math.max(0, fold(text).indexOf(w)), a = Math.max(0, i - 50), b = Math.min(text.length, i + w.length + 80);
+    return (a ? '…' : '') + text.slice(a, b).trim() + (b < text.length ? '…' : '');
+  }
+  function search(raw) {
+    const words = fold(raw).split(/\s+/).filter(Boolean);
+    results = []; results.words = words;
+    if (!words.length) return results;
+    const phrase = words.join(' '), out = [];
+    for (const it of index) {
+      if (!words.every(w => it.key.includes(w))) continue;
+      if (it.kind === 'Text' && phrase.length < 3) continue;
+      const name = fold(it.t);
+      // by kind first, then: name starts with the phrase, contains it, has every word, or only its notes match
+      const score = it.rank * 10 + (name.startsWith(phrase) ? 0 : name.includes(phrase) ? 2 : words.every(w => name.includes(w)) ? 4 : 6);
+      out.push([score, it]);
+    }
+    out.sort((a, b) => a[0] - b[0]);
+    const named = out.filter(([, it]) => it.kind !== 'Text').slice(0, 9).map(x => x[1]);
+    const text = out.filter(([, it]) => it.kind === 'Text').slice(0, 14 - named.length).map(x => x[1]);
+    const textCount = out.length - out.filter(([, it]) => it.kind !== 'Text').length;
+    results = named.concat(text);
+    results.extra = textCount - text.length;
+    results.words = words;
+    return results;
+  }
+  function place() {
+    const r = q.getBoundingClientRect();
+    box.style.left = Math.max(8, Math.min(r.left, document.documentElement.clientWidth - box.offsetWidth - 8)) + 'px';
+    box.style.top = (r.bottom + 6) + 'px';
+  }
+  function render() {
+    const words = results.words || [];
+    if (!q.value.trim()) { close(); return; }
+    box.innerHTML = results.length ? results.map((it, i) => {
+      const t = it.kind === 'Text' ? hl(snippet(it.text, words[0]), words) : hl(it.t, words);
+      const s = it.kind === 'Text' ? esc(sectionOf(it.el)) : it.kind === 'Entry' && it.text && !words.every(w => fold(it.t).includes(w)) ? hl(snippet(it.text, words[0]), words) : esc(it.s);
+      return `<div class="gr" role="option" id="gr-${i}" data-i="${i}" aria-selected="${i === active}"><span class="gr-kind">${it.kind}</span><span class="gr-t${it.kind === 'Text' ? ' txt' : ''}">${t}</span>${s ? `<span class="gr-s">${s}</span>` : ''}</div>`;
+    }).join('') + (results.extra > 0 ? `<div class="gr-none">${results.extra} more text matches; type more to narrow it down.</div>` : '')
+      : '<div class="gr-none">Nothing matches. Try a shorter word.</div>';
+    if (!box.matches(':popover-open')) box.showPopover();
+    place();
+    q.setAttribute('aria-expanded', 'true');
+    if (active >= 0) q.setAttribute('aria-activedescendant', 'gr-' + active); else q.removeAttribute('aria-activedescendant');
+  }
+  function close() { if (box.matches(':popover-open')) box.hidePopover(); q.setAttribute('aria-expanded', 'false'); q.removeAttribute('aria-activedescendant'); active = -1; }
+  function setActive(i) {
+    active = i;
+    box.querySelectorAll('.gr').forEach(g => g.setAttribute('aria-selected', String(+g.dataset.i === i)));
+    const g = document.getElementById('gr-' + i); if (g) g.scrollIntoView({ block: 'nearest' });
+    if (i >= 0) q.setAttribute('aria-activedescendant', 'gr-' + i); else q.removeAttribute('aria-activedescendant');
+  }
+  function choose(i) { const it = results[i]; if (!it) return; close(); q.blur(); it.go(); }
+  q.addEventListener('input', () => { if (!index) build(); search(q.value); active = results.length ? 0 : -1; render(); });
+  q.addEventListener('focus', () => { if (!index) build(); if (q.value.trim()) { search(q.value); render(); } });
+  q.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' && results.length) { e.preventDefault(); setActive((active + 1) % results.length); }
+    else if (e.key === 'ArrowUp' && results.length) { e.preventDefault(); setActive((active - 1 + results.length) % results.length); }
+    else if (e.key === 'Enter' && active >= 0) { e.preventDefault(); choose(active); }
+    else if (e.key === 'Escape') { if (box.matches(':popover-open')) { e.preventDefault(); close(); } else { q.value = ''; } }
+  });
+  box.addEventListener('mousedown', e => e.preventDefault());
+  box.addEventListener('click', e => { const g = e.target.closest('.gr'); if (g) choose(+g.dataset.i); });
+  box.addEventListener('mousemove', e => { const g = e.target.closest('.gr'); if (g && +g.dataset.i !== active) setActive(+g.dataset.i); });
+  q.addEventListener('blur', () => setTimeout(() => { if (document.activeElement !== q) close(); }, 0));
+  window.addEventListener('resize', () => { if (box.matches(':popover-open')) place(); });
+  window.addEventListener('scroll', () => { if (box.matches(':popover-open')) place(); }, { passive: true });
+  document.addEventListener('keydown', e => {
+    if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
+    const t = e.target; if (t.closest && t.closest('input, textarea, select, [contenteditable="true"], dialog[open]')) return;
+    e.preventDefault();
+    const toc = document.getElementById('toc'); if (toc && !toc.open) toc.open = true;
+    q.focus(); q.select();
+  });
+})();
+
+/* Printing: open every collapsed part (spoilers) and load every picture first */
+(function () {
+  let undo = [];
+  function prep() {
+    if (undo.length) return;
+    document.querySelectorAll('main details:not([open])').forEach(d => { d.open = true; undo.push(() => { d.open = false; }); });
+    document.querySelectorAll('img[loading="lazy"]').forEach(i => { i.loading = 'eager'; });
+  }
+  function unprep() { undo.forEach(f => f()); undo = []; }
+  window.addEventListener('beforeprint', prep);
+  window.addEventListener('afterprint', unprep);
+  const btn = document.getElementById('printBtn');
+  if (btn) btn.addEventListener('click', () => {
+    prep();
+    const waits = [...document.images].filter(i => !i.complete).map(i => new Promise(r => { i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); }));
+    Promise.race([Promise.all(waits), new Promise(r => setTimeout(r, 4000))]).then(() => window.print());
+  });
+})();
+</script>
+</body>
+</html>
